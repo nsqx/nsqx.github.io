@@ -4,7 +4,7 @@
   window.onload = ()=>{
     document.getElementById('sc').innerText = ''//obf
   };if(window.location.search.startsWith('?64') && window.location.href != ''){
-    if window.location.search.toUppercase().includes('&QWD'){document.designMode = 'on';}
+    if(window.location.search.toUppercase().includes('&QWD')){document.designMode = 'on';}
     document.getElementById('embd').src = atob(window.location.hash.substring(2));document.querySelector('title').innerText = atob(window.location.hash.substring(2);
   }else if(window.location.hash!=''){document.querySelector('pre').innerText=
   window.location.hash.substring(1)}</script>
