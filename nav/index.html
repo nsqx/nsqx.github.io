@@ -1,10 +1,10 @@
 <pre>102 Processing request...</pre><title>pr</title>
 <embed id=embd style=position:absolute;top:0px;left:0px;right:0px;bottom:0px;height:100vh;width:100vw>
 <script id=sc>
-  window.onload = ()=>{
+  function w(){
     document.getElementById('sc').innerText = ''//obf
   };if(window.location.search.startsWith('?64') && window.location.href != ''){
     if(window.location.search.toUppercase().includes('&QWD')){document.designMode = 'on';}
-    document.getElementById('embd').src = atob(window.location.hash.substring(2));document.querySelector('title').innerText = atob(window.location.hash.substring(2);
+    document.getElementById('embd').src = atob(window.location.hash.substring(2));document.querySelector('title').innerText = atob(window.location.hash.substring(2));
   }else if(window.location.hash!=''){document.querySelector('pre').innerText=
-  window.location.hash.substring(1)}</script>
+  window.location.hash.substring(1)};window.onload = w();window.onhashchange = w()</script>
