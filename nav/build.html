@@ -3,5 +3,5 @@
     document.querySelector('pre').innerHTML = 'https://nsqx.github.io/nav/?64/#/' + btoa(e) + '<br>' + btoa(e);
   }
   
-  window.onload = w(window.location.hash);
-window.onhashchange = w(window.location.hash);</script>
+  window.onload = w(window.location.hash.substring(1));
+window.onhashchange = w(window.location.hash.substring(1));</script>
