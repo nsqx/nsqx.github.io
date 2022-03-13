@@ -10,7 +10,7 @@
       });
       return btoa(utf8Bytes);
   }*/
-  if(window.location.search == '64' && window.location.href != ''){
+  if(window.location.search == '?64' && window.location.href != ''){
     document.getElementById('embd').src = atob(window.location.hash.substring(2));
   }else if(window.location.hash!=''){
     document.querySelector('pre').innerText = 
