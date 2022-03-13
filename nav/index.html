@@ -1,5 +1,19 @@
 <pre>102 Processing request...</pre>
-<script>if(window.location.hash!=''){
-  document.querySelector('pre').innerText = 
-  window.location.hash.substring(1)
-}</script>
+<embed id=embd style=position:absolute;top:0px;left:0px;right:0px;bottom:0px;height:100vh;width:100vw>
+<script id=sc>
+  window.onload = ()=>{
+    document.getElementById('sc').innerText = ''//obf
+  }
+  /*function b64e(str) {
+      utf8Bytes = encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+        return String.fromCharCode('0x' + p1);
+      });
+      return btoa(utf8Bytes);
+  }*/
+  if(window.location.search == '64' && window.location.href != ''){
+    document.getElementById('embd').src = atob(window.location.hash.substring(2));
+  }else if(window.location.hash!=''){
+    document.querySelector('pre').innerText = 
+    window.location.hash.substring(1)
+  }
+</script>
