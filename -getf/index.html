@@ -14,24 +14,18 @@
             }else{
                 wlocs = "https://nsqx.github.io/res/!/cd6935a.json";
                 if(window.location.search != ''){
-                wlocs = window.location.search.slice(1);
-                if(window.location.hash != ''){
-                    wloch = window.location.hash.slice(2);
-                }else{
-                    wloch = "error";
+                    wlocs = window.location.search.slice(1);
+                    if(window.location.hash != ''){
+                        wloch = window.location.hash.slice(2);
+                    }else{
+                        wloch = "error";
+                    };
                 };
-            }
+            };
             fetch(wlocs)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data) {
-                    adl(data);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                    wloch = "error"
-                });
+                .then( function (response) {return response.json();} )
+                .then( function (data) {adl(data);} )
+                .catch(function (err) {console.log(err); wloch = "error";} );
         };
 
         function adl(e){
@@ -39,7 +33,7 @@
                 eval("document.querySelector('body').innerHTML = e.get.fetch." + wloch);
             }else{
                 document.querySelector('body').innerHTML = e.get.error;
-            };
+            }
         }
     </script>
 </body>
