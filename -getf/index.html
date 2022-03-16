@@ -1,0 +1,39 @@
+<html><!---not ?64 version--->
+<body>
+    <pre>102 Processing request...</pre>
+    <script id=sc>
+        window.onload=()=>{
+            window.getElementById("sc").innerText = "/* !null */";
+            if(window.location.search != ''){
+                wlocs = window.location.search.slice(1);
+                if(window.location.hash != ''){
+                    wloch = window.location.hash.slice(2);
+                }else{
+                    wloch = "error";
+                };
+            }else{
+                wlocs = "https://nsqx.github.io/res/data/!/cd6935a.json";
+            }
+            fetch(wlocs)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    adl(data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    wloch = "error"
+                });
+        };
+
+        function adl(e){
+            if(wloch != "error"){
+                eval(`document.querySelector('body').innerHTML = e[0].get.fetch.${wloch}`);
+            }else{
+                document.querySelector('body').innerHTML = e[0].get.error;
+            };
+        }
+    </script>
+</body>
+</html>
