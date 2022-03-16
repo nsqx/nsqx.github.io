@@ -36,9 +36,9 @@
 
         function adl(e){
             if(wloch != "error"){
-                eval(`document.querySelector('body').innerHTML = e[0].get.fetch.${wloch}`);
+                eval(`document.querySelector('body').innerHTML = e.get.fetch.${wloch}`);
             }else{
-                document.querySelector('body').innerHTML = e[0].get.error;
+                document.querySelector('body').innerHTML = e.get.error;
             };
         }
     </script>
