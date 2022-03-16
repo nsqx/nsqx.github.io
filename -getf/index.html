@@ -13,6 +13,13 @@
                 };
             }else{
                 wlocs = "https://nsqx.github.io/res/data/!/cd6935a.json";
+                if(window.location.search != ''){
+                wlocs = window.location.search.slice(1);
+                if(window.location.hash != ''){
+                    wloch = window.location.hash.slice(2);
+                }else{
+                    wloch = "error";
+                };
             }
             fetch(wlocs)
                 .then(function (response) {
