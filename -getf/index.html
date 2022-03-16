@@ -5,21 +5,18 @@
         window.onload=()=>{
             document.getElementById("sc").innerText = "/* !null */";
             if(window.location.search != ''){
-                wlocs = window.location.search.slice(1);
+                var wlocs = window.location.search.slice(1);
                 if(window.location.hash != ''){
-                    wloch = window.location.hash.slice(2);
+                    var wloch = window.location.hash.slice(2);
                 }else{
-                    wloch = "error";
+                    var wloch = "error";
                 };
             }else{
-                wlocs = "https://nsqx.github.io/res/!/cd6935a.json";
-                if(window.location.search != ''){
-                    wlocs = window.location.search.slice(1);
-                    if(window.location.hash != ''){
-                        wloch = window.location.hash.slice(2);
-                    }else{
-                        wloch = "error";
-                    };
+                var wlocs = "https://nsqx.github.io/res/!/cd6935a.json";
+                if(window.location.hash != ''){
+                    var wloch = window.location.hash.slice(2);
+                }else{
+                    var wloch = "error";
                 };
             };
             fetch(wlocs)
