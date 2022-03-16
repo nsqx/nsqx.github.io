@@ -1,6 +1,7 @@
 {
   "-get": {
     "default": "<pre>102 Processing request...</pre>",
+    "error": "<pre>404 Data not found.</pre>",
     "fetch": {
       "0F01": "<appf-text style=font-family:consolas,monospace;font-size:4.2rem;text-align:center;position:absolute;top:32vh;left:0px;right:0px;bottom:0px;width:100vw>Terms and conditions<br><appf-intext style=font-size:2.3rem;>Don't spam, don't swear too much, don't make people feel uncomfortable, and memes.<br></appf-intext></appf-text>"
     }
