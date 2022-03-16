@@ -1,5 +1,5 @@
 {
-  "-get": {
+  "get": {
     "default": "<pre>102 Processing request...</pre>",
     "error": "<pre>404 Data not found.</pre>",
     "fetch": {
