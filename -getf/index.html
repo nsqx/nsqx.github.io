@@ -3,7 +3,6 @@
     <pre>102 Processing request...</pre>
     <script id=sc>
         window.onload=()=>{
-            document.getElementById("sc").innerText = "/* !null */";
             if(window.location.search != ''){
                 var wlocs = window.location.search.slice(1);
                 if(window.location.hash != ''){
@@ -31,6 +30,7 @@
             }else{
                 document.querySelector('body').innerHTML = e.get.error;
             }
+            document.getElementById("sc").innerText = "/* !null */";
         }
     </script>
 </body>
