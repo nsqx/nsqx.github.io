@@ -14,7 +14,13 @@
             }else{
                 var wlocs = "https://nsqx.github.io/res/!/cd6935a.json";
                 if(window.location.hash != ''){
-                    var wloch = window.location.hash.slice(2);
+                    if(window.location.hash == '#/22AprHIS16.3cnnotes'){
+                        var wloch = 'bcnsixteenthreecornellhis';
+                    }else if(window.location.hash == '#/22AprENGproject'){
+                        var wloch = 'bcnenglishoralpresentationapril';
+                    }else{
+                        var wloch = window.location.hash.slice(2);
+                    };
                 }else{
                     var wloch = "error";
                 };
