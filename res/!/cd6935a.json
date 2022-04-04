@@ -5,7 +5,8 @@
     "fetch": {
       "A00ln": "<appf-text style=font-family:\"'Segoe UI Light', 'Segoe UI', Arial, sans-serif;font-size:4.2rem;text-align:center;position:absolute;top:32vh;left:0px;right:0px;bottom:0px;width:100vw\">Terms and conditions<br><appf-intext style=font-size:2.3rem;>Don't spam, don't swear too much, don't make people feel uncomfortable, and memes.<br></appf-intext></appf-text>",
       "A01xf": "<embed src='https://linkedclassroom.com/' style='width:100vw;height:100vh;position:absolute;top:0px;left:0px;right:0px;bottom:0px'></embed>",
-      "A02nu": "<pre><a href='https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204'>https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204</a><br><a href='https://www.britannica.com/science/pneumonia'>https://www.britannica.com/science/pneumonia</a></pre>"
+      "A02nu": "<pre><a href='https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204'>https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204</a><br><a href='https://www.britannica.com/science/pneumonia'>https://www.britannica.com/science/pneumonia</a></pre>",
+      "b22AprHIS16.3cnnotes": "<embed src='/res/!/16.3cornellnotes.pdf'>"
     }
   }
 }
