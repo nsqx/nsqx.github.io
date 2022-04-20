@@ -1,8 +1,6 @@
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
 
     { // declaring all q_ variables for js-html reference
