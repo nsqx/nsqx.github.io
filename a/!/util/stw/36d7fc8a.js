@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     q_html.style.transition = "0.5s";
 
     if (window.location.protocol != "file:"){
-        window.history.pushState(q_html.innerHTML, null, "/util.stw");
+        window.history.pushState(q_html.innerHTML, null, window.location.origin + "/util.stw");
 
     }
 
