@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html cmode = preventjarringtransition>
+<head>
+  <script> $app = { "?": "app", "sub": "notepadcc" } </script>
+  <script> console.log($app)</script>
+    <style id="allstyle">* {font-family: Consolas, monospace;font-size: 12pt;user-select: none;}</style>
+  <style>
+  [cmode = dark] {
+    transition: 0.5;
+    background-color:#222;
+    color:#eee;
+    color-scheme: dark;
+  }
+
+  [cmode = light] {
+    background-color:#eee;
+    color:#222;
+    transition: 0.5s;
+    color-scheme: light;
+  }
+
+  [cmode = preventjarringtransition] {
+    transition: 0.5s;
+    color-scheme: light;
+    color: rgb(128,128,128);
+    background-color: rgb(128,128,128);
+  }
+
+  app-mode-toggle {
+    position:absolute;
+    top:5vh;
+    right: 2vw;
+  }
+
+  app-connection {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    transform:skewX(10deg);
+  }
+
+  warn {
+    color: red;
+    animation: infinite cor 1s;
+    font-size:13pt
+  }
+
+  @keyframes cor {
+    0% {
+      opacity:0;
+      letter-spacing: -1px;
+      background-color: rgba(255,0,0,0.5);
+    }
+    25% {
+      opacity:0.8;
+      color: red;
+    }
+    100% {
+      opacity:1;
+      font-weight: bold;
+    }
+  }
+
+  .dialoglight {
+      background-color: rgba(255, 255, 255, 1);
+  }
+  .dialogdark {
+      background-color: #222;
+  }
+  body {
+    height: 95vh;
+    width: 95vw;
+  }
+  smalltext {
+    font-size: 5pt;
+    color: #696969;
+    letter-spacing: -1px;
+  }
+  button {
+    border-radius: 0px;
+    border-width:1px
+  }
+  input {
+    border-radius: 0px;
+    border-width:1px
+  }
+  .mopen {
+    overflow: hidden;
+  }
+  ::-moz-selection{ background: rgba(29, 153, 255, 0.438);}
+  ::selection { background:rgba(29, 153, 255, 0.438);}
+  </style>
+  <script src="6f6e5c70.js"></script>
+  <title> - notepadcc</title>
+</head>
+<body aria-label="body">
+  <display>
+    <!--#shadow-->
+    <e>
+      <tophaeder>
+          <span>notepadcc - Convert formatted content to embeddable HTML</span><hr>
+        </tophaeder>
+      <fbool style="display:none; color:red;">* </fbool><fname>Untitled</fname>
+      <app-mode-toggle><a href="#::toggle">toggle</a></app-mode-toggle>
+      <app-connection>connection online</app-connection>
+      <bform>
+        <rmsc1 aria-label="visible" style="display: none;"></rmsc1>
+        <lr>
+            <t-p>
+            <vinput aria-label="1" style="position:absolute; left:10px; right:10px; bottom:10px; top:16vh; width: 95vw; height: 80vh; text-align:left; border-style: solid;  border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px; color:#696969; overflow:scroll;" spellcheck="false">Paste formatted text</vinput>
+            </t-p>
+            <textarea id="extracted" style="display:none;position:absolute; left:10px; right:10px; bottom:10px; top:16vh; width: 95vw; height: 80vh; text-align:left; border-style: solid;  border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px; word-spacing: -1px;"></textarea>
+        </lr>
+        <buttonlist style="position:absolute; top: 10vh;">
+            <button style="display: none;" id="restore">Restore from autosave</button>
+            <button id="sourcede">Edit Source</button>
+            <button id="sourcede2" style="display:none;">Restore UI</button>
+            <button id="save">Save As</button>
+            <button style="display:none;" id="saveupd">Save</button>
+            <button style="display:none;" id="deletd">Delete</button>
+            <button id="fles">Choose</button>
+            <button id="popupnew">Open in new tab</button>
+            <button id="downloadb">Download</button>
+        </buttonlist>
+        <modalform>
+            <save-modal style=" display:none; position:absolute; top:0px; left:0px; right:0px; bottom:0px; background-color:rgba(99, 99, 99, 0.8)">
+                <save-dialog style="position:absolute; top:35vh; left:30vw; right: 30vw; bottom:35vh; border-style: solid; border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px;"><center><br><br><br>Save name:<br><br><input type="text" id="savename" maxlength="64"></center>
+                <br><center><button type="submit" id="savesub">Save</button><button id="cancelsub">Cancel</button></center>
+            </save-dialog></save-modal>
+            <error-modal style=" display:none; position:absolute; top:0px; left:0px; right:0px; bottom:0px; background-color:rgba(99, 99, 99, 0.8)">
+                <error-dialog style="position:absolute; top:35vh; left:30vw; right: 30vw; bottom:35vh; border-style: solid; border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px;"><center><br><br><br>File exists already<br><br>Replace existing file?<br><br></center>
+                    <br><center><button type="submit" id="yesreplace">Yes</button><button id="noreplace">No</button></center></error-dialog>
+            </error-modal>
+            <file-modal style=" display:none; position:absolute; top:0px; left:0px; right:0px; bottom:0px; background-color:rgba(99, 99, 99, 0.8)">
+                <file-dialog style="position:absolute; top:35vh; left:30vw; right: 30vw; bottom:35vh; border-style: solid; border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px;"><center><br><br><br>Choose a file<br><br><select name="fileselectopen" id="fileselectopen"></select><br><br></center>
+                    <br><center><button type="submit" id="opensub">Open</button><button id="cancelopensub">Cancel</button></center></file-dialog>
+            </file-modal>
+            <delete-modal style=" display:none; position:absolute; top:0px; left:0px; right:0px; bottom:0px; background-color:rgba(255, 99, 99, 0.8)">
+                <delete-dialog style="position:absolute; top:35vh; left:30vw; right: 30vw; bottom:35vh; border-style: solid; border-width: 1px; border-color: #333333; padding-left: 4px; padding-top: 2px; padding-right: 4px;"><center><br><br><br>Delete a file<br><br>Are you sure you would like to delete '<deletename></deletename>'?<br><br></center>
+                    <br><center><button id="deletesub">Yes</button><button id="canceldeletesub">No</button></center></delete-dialog>
+            </delete-modal>
+        </modalform>
+      </bform>
+    </e>
+  </display>
+</body>
+</html>
+
+
+
+<forensic-object lang="application/json">
+  <forensic-object-script>{ "?": "app", "sub": "notepadcc" }</forensic-object-script>
+</forensic-object>
+
+<forensic-warning lang="text/noscript">
+  <forensic-object-text><noscript>notice: enable javascript you sadistic manbaby</noscript></forensic-object-text>
+</forensic-warning>
