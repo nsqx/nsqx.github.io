@@ -1,0 +1,170 @@
+body {
+    width: 97vw;
+    height: 200vh;
+    font-family: 'Segoe UI', Arial, monospace;
+    font-size: 20pt;
+    /*position: absolute;
+    top: 0px; left: 0px; right: 0px; bottom: 0px;*/
+}
+
+[centered] {
+    text-align: center;
+}
+
+[lefted] {
+    text-align: left !important;
+}
+
+[vscroll] {
+    position:absolute;
+    top:var(--x);
+    left:0px;
+    bottom:0px;
+    height:100vh;
+    overflow-y: scroll;
+}
+
+[hscroll] {
+    position:absolute;
+    top:0px;
+    left:var(--x);
+    right:0px;
+    width:95vw;
+    overflow-x:scroll;
+}
+
+
+[colormode=light] {
+    color-scheme: light;
+    color: #000000;
+    background-color: #EEEEEE;
+    --standardbg: rgba(238, 238, 238, 0.8);
+    --standardgray: lightgray;
+    --standardgray2: rgb(233, 233, 233);
+}
+
+[colormode=dark] {
+    color-scheme: dark;
+    color: #EEEEEE;
+    background-color: #161616;
+    --standardbg: rgba(16, 16, 16, 0.8);
+    --standardgray: darkgray;
+    --standardgray2: rgb(48, 48, 48);
+}
+
+[colormode=preventjarringtransition] {
+    color-scheme: light;
+    color: rgb(128,128,128);
+    background-color: rgb(128,128,128);
+}
+
+::-moz-selection{ background: rgba(29, 153, 255, 0.438);}
+::selection { background:rgba(29, 153, 255, 0.438);}
+
+/*::-moz-selection{ background: rgb(0, 0, 128); color: #FFFFFF}
+::selection { background:rgb(0, 0, 128); color: #FFFFFF}*/
+
+app-op {
+    position:sticky;
+    top:10vh;
+    text-align: center;
+}
+
+
+inputter {
+    width: 100px;
+    height: 1.3rem;
+    background-color: var(--standardgray2);
+}
+
+div#doverbox {
+    position:absolute;
+    left:35vw;
+    top:-10vh;
+    right:35vw;
+    height: 45vh;
+    display:none;
+    background-color: var(--standardbg);
+}
+
+[coverboxparent] {
+    position:absolute;
+}
+
+app-mode-toggle {
+    position:absolute;
+    top:2vh;
+    right: 2vw;
+}
+
+applet-label {
+    font-size:15pt;
+}
+
+applet-main, stw-laps, stw-lp {
+    font-family: consolas, monospace !important;
+    font-size: 30pt;
+}
+
+a {
+    font-size: 12pt;
+    user-select: none;
+}
+
+grey {
+    color: gray;
+}
+
+t-main {
+    user-select: revert;
+    user-select: contain;
+}
+
+[hide] {
+    opacity: 0;
+    user-select: none;
+}
+
+app-label, applet-label, applet-controls {
+    user-select: none;
+}
+
+applet-controls {
+    font-size:12pt;
+}
+
+stw-laps {
+    position:absolute;
+    top:40vh;
+    /*left:20vw;*/
+    display:inline-block;
+    font-size: 12pt;
+    user-select: revert;
+    user-select: contain;
+    text-align: left !important;
+}
+
+stw-lp {
+    text-align: left !important;
+    position:absolute;
+    /*left:20vw;*/
+    display:inline-block;
+    font-size: 12pt;
+    top:38vh;
+    user-select: none;
+}
+
+scroll {
+    user-select:none;
+}
+
+stl {
+    text-align: left !important;
+    display:flex;
+    margin-left: 7vw;
+}
+
+button {
+    background-color: --standardgray;
+    border-radius: 0px;
+}
