@@ -151,6 +151,7 @@ window.onbeforeunload = ()=>{
     if (window.location.protocol != "file:"){
         window.history.replaceState(q_html.innerHTML, null, window.location.origin + "/a/!/util/stw/");
         window.location.href = "/a/!/util/stw/";
+        sleep(1000);
     }
 }
 
