@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.location.protocol != "file:"){
         window.history.replaceState(q_html.innerHTML, null, window.location.origin + "/util.stw");
-        window.history.forward()
     }
 
     if(_q_stw_tm != null && _q_stw_tm.indexOf(" => util.clock.stw.timevaluebeforeunload") != -1){
@@ -150,8 +149,8 @@ window.onbeforeunload = ()=>{
     localStorage.setItem("util.clock.stw.time", q_t_h.innerText + ", " + q_t_m.innerText + ", " + q_t_s.innerText + ", " + q_t_ms.innerText + "; => util.clock.stw.timevaluebeforeunload")
     sessionStorage.setItem("util.clock.stw.laps", q_stw_laps.innerHTML)
     if (window.location.protocol != "file:"){
-        window.history.pushState(q_html.innerHTML, null, window.location.origin + "/a/!/util/stw/");
-
+        window.history.replaceState(q_html.innerHTML, null, window.location.origin + "/a/!/util/stw/");
+        window.location.href = "/a/!/util/stw/";
     }
 }
 
