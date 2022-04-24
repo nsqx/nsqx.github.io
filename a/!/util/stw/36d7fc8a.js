@@ -76,6 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
     q_stw_start.addEventListener("click", ()=>{
         q_stw_start.innerText = "Start";
         q_stw_reset.setAttribute("disabled", "");
+        navigator.wakeLock.request("display").then(
+            function successFunction() {
+            },
+            function errorFunction() {
+            }
+
+        navigator.wakeLock.request("system").then(
+            function successFunction() {
+            },
+            function errorFunction() {
+            }
+        );
+        
         clock = setInterval(()=>{
             if (parseInt(q_t_s.innerText) < 9){
             q_t_s.innerText = "0" + (parseInt(q_t_s.innerText) + 1).toString();
@@ -117,6 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     q_stw_stop.addEventListener("click", ()=>{
+        navigator.wakeLock.release("display");
+        navigator.wakeLock.release("system");
         q_stw_stop.setAttribute("disabled", "");
         q_stw_start.removeAttribute("disabled");
         q_stw_lap.setAttribute("disabled", "");
