@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             function successFunction() {
             },
             function errorFunction() {
-            }
+            })
 
         navigator.wakeLock.request("system").then(
             function successFunction() {
