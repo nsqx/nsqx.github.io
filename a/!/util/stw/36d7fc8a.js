@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.location.protocol != "file:"){
         window.history.replaceState(q_html.innerHTML, null, window.location.origin + "/util.stw");
-
+        window.history.forward()
     }
 
     if(_q_stw_tm != null && _q_stw_tm.indexOf(" => util.clock.stw.timevaluebeforeunload") != -1){
