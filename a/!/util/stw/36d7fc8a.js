@@ -130,8 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     q_stw_stop.addEventListener("click", ()=>{
-        navigator.wakeLock.release("display");
-        navigator.wakeLock.release("system");
+
         q_stw_stop.setAttribute("disabled", "");
         q_stw_start.removeAttribute("disabled");
         q_stw_lap.setAttribute("disabled", "");
