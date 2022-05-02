@@ -18,13 +18,7 @@
 thisurl = "https://nsqx.github.io/!/!/c/"
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    if (window.location.pathname.startsWith("/!/!/c/")) /*https://nsqx.github.io/!/!/c/... url*/ {
-        if (window.location.search == "?64"){
-            document.body.innerHTML = atob(window.location.pathname.split("/!/!/c/")[1]);
-        }else{
-            document.body.innerHTML = (window.location.pathname.split("/!/!/c/")[1]);
-        }
-    }else{
+    {
         if (window.location.hash.startsWith("#64")){
             if (!window.location.hash.endsWith("#64")){
                 let l = document.createElement('a');
