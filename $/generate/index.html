@@ -1,0 +1,6 @@
+<script>
+window.onload=()=>{o = ""; a = [[[]], ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/"]]
+i=0;while (i < 64*64*5){i++;o += a[1][Math.floor(Math.random() * 64)];};document.querySelector("code").innerText=o;document.querySelector("code").addEventListener("click", ()=>{c = new Blob([atob(o)], {type: "application/octet-stream"}); url = URL.createObjectURL(c),
+anch = document.createElement('a'); anch.href = url; anch.download = "safepseudo.bin"; document.body.appendChild(anch); anch.click(); document.body.removeChild(anch); URL.revokeObjectURL(url)})}
+</script>
+<code style="display:block; width:90vw; resize: both; word-wrap: break-word; user-select: all;">
