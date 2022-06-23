@@ -103,7 +103,7 @@ br {
 
 colr {
     margin-bottom: 5rem;
-    overflow: clip;
+    overflow: hidden;
     height: max-content;
 }
 
@@ -254,7 +254,7 @@ astr {
 
 [hide1] {
     height:2rem;
-    overflow:clip;
+    overflow:hidden;
     transition: 1s all ease ;
     border-bottom: 3px inset darkgray ;
 }
@@ -279,7 +279,7 @@ span[fakecontrol] {
 [hider2] {
     width: 30%;
     height: 1.8rem;
-    overflow:clip;
+    overflow:hidden;
     text-overflow: ellipsis;
     transition: all 1s ease
 }
@@ -290,7 +290,7 @@ span[fakecontrol] {
 
 [hide3] {
     height:2rem;
-    overflow:clip;
+    overflow:hidden;
     text-overflow: ellipsis;
     transition: all 1s ease
     ;border-bottom: 3px inset darkgray ;
