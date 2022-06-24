@@ -103,7 +103,7 @@ br {
 
 colr {
     margin-bottom: 5rem;
-    overflow: hidden;
+    overflow: visible;
     height: max-content;
 }
 
