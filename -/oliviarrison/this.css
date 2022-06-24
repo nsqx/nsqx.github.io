@@ -118,7 +118,7 @@ colr {
     colr{
         margin-right:10rem;
     }
-    sidebar:focus, sidebar:focus-within {
+    sidebar {
         opacity:1 !important;
     }
 }
@@ -127,7 +127,7 @@ colr {
     smsf {
         opacity:1 !important;
     }
-    sidebar:focus {
+    sidebar {
         opacity:0;
     }
 }
@@ -140,8 +140,6 @@ colr {
         opacity:0;
     }
 }
-
-sidebar {opacity:0}
 
 @media print {
     pseudo {
@@ -388,4 +386,10 @@ hrsmline:hover, hrsmline:active {
     text-decoration:underline var(--mutedcl);
     transition: all 1s ease;
     text-decoration-thickness: 1px;
+}
+
+.readerfriendly {
+    height:0px !important;
+    margin: 0px;
+    padding:0px;
 }
