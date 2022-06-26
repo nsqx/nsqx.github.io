@@ -1,0 +1,422 @@
+@font-face {
+    font-family: "hvcd";
+    src: url("rs.woff") format('woff');
+}
+
+:root[dark] {
+    --floor-color:#363c4b;
+    --body-backup-background: rgb(60,77,83);
+    --body-radial-background: radial-gradient(circle, rgb(60, 67, 83) 3%, rgb(51, 56, 70)64%, rgb(39, 43, 54)100%);
+}
+
+:root[light] {
+    --floor-color:#c9c3b4;
+    --body-backup-background: #c3b2ac;
+    --body-radial-background: radial-gradient(circle, #c3bcac 3%, #ccc7b9 64%, #d8d4c9 100%);
+}
+
+::selection {
+    background: rgba(0,0,0,0.25) !important;
+}
+
+::-moz-selection {
+    background: rgba(0,0,0,0.25) !important;
+}
+
+::-webkit-scrollbar {
+    width:20px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 7px solid transparent;
+    border-radius: 90px;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner {
+    display: none;
+}
+
+[-isometric-application-menu] * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: hvcd, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0rem;
+    font-weight: 700;
+    font-size: 24pt;
+    text-rendering: optimizeLegibility;
+}
+
+[shadowless], [shadowless]::before, [shadowless]::after {
+    box-shadow: none !important;
+}
+
+[flex] {
+    display:flex;
+}
+
+[center] {
+    justify-content: center;
+}
+
+[reverse] {
+    flex-direction: column-reverse;
+}
+
+[flow-forward] {
+    flex-direction: column;
+}
+
+html {
+    height: 100vh;
+    width: 100vw;
+    overflow:hidden;
+    transition: all 0s ease;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow:hidden;
+    background: #c3b2ac;
+    background: radial-gradient(circle, #c3bcac 3%, #ccc7b9 64%, #d8d4c9 100%);
+    background: rgb(60,77,83);
+    background: radial-gradient(circle, rgb(60, 67, 83) 3%, rgb(51, 56, 70)64%, rgb(39, 43, 54)100%);
+    background: var(--body-backup-background);
+    background: var(--body-radial-background);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+}
+
+html {
+    overflow-x:hidden;
+}
+
+ul[list] {
+    position: relative;
+    transform: skewY(-13deg);
+    transition: all 0.5s ease;
+}
+
+app {
+    top:10vh;
+    position: absolute;
+    display:block !important;
+    animation: 1s ease fade-in forwards;
+    transition: all 0.5s ease;
+    overflow:visible;
+}
+
+container {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex;
+    justify-content: center;
+    overflow:auto;
+}
+
+section {
+    transition: all 0s ease;
+}
+
+.flipout {
+    animation: 1s ease fade-out forwards;
+}
+
+.flipin {
+    animation: 1s ease fade-in2 forwards;
+}
+
+[lower] {
+    text-transform: lowercase;
+}
+
+[invert] {
+    filter:invert(1) !important;
+}
+
+@keyframes fade-in {
+    from{opacity:0; transform:translate(100px,15px)}
+    to{opacity:1; transform:translate(0px)}
+}
+
+@keyframes fade-er {
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fade-in2 {
+    from{opacity:1; transform:translate(0px)}
+    to{opacity:0; transform:translate(100px,15px)}
+}
+
+@keyframes fade-out {
+    from{opacity:1; transform:translate(0px)}
+    to{opacity:0; transform:translate(-100px,-15px)}
+}
+
+
+
+
+
+
+
+
+
+ul[list] li {
+    position: relative;
+    list-style-type: none;
+    max-width:100.5vw;
+    display: block;
+    width:350px;
+    background:#363c4b;
+    padding:32px;
+    text-overflow: clip;
+    z-index: var(---z);
+    transition:all 0.5s ease;
+    border:0px solid #363c4b;
+}
+
+[itemheader] {
+    position: relative;
+    text-shadow: 0px 0px 9px rgba(255,255,255,0.37);
+    color:white;
+    padding:32px;
+    transition:all 0.5s ease;
+    width:350px;
+    user-select: none;
+}
+
+
+
+ul[list] li::before {
+    content:"";
+    background-color: #272b36;
+    width:70px;
+    height: 100%;
+    position: absolute;
+    left:-70px;
+    top:0;
+    bottom:0;
+    transform-origin: right;
+    transform:skewY(45deg);
+    z-index:var(---z);
+    border:1px solid #272b36;
+    box-sizing:border-box
+}
+
+ul[list] li::after {
+    content:"";
+    background-color: #2c303b;
+    width:100%;
+    height: 70px;
+    position: absolute;
+    top:-70px;
+    left:0;
+    bottom:0;
+    transform-origin: bottom;
+    transform:skewX(45deg);
+    z-index:var(---z);
+    border:1px solid #2c303b;
+    box-sizing:border-box
+}
+
+ul[list] a{
+    text-decoration: none;
+    color:darkgray;
+    outline: none;
+    transition:all 0.25s ease;
+    display:block;
+}
+
+ul[list] li:not([noanim]):hover a, ul[list] a:not([noanim]):hover li {
+    color:rgba(255,255,255,0.97);
+    text-shadow: -2px -2px 1px rgba(200,200,200,0.97), -4px -4px 1px rgba(100,100,100,0.97), -6px -6px 1px rgba(10,10,10,0.97), /*-8px -8px 1px rgba(10,10,10,0.97),*/
+                -1px -1px 1px rgba(230,230,230,0.97), -3px -3px 1px rgba(150,150,150,0.97), -5px -5px 1px rgba(50,50,50,0.97)/*, -7px -7px 1px rgba(10,10,10,0.97),
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        2px -2px 0 #000,
+        -2px -2px 0 #000;*/
+    /*transform:translate(10px, 10px);*/
+}
+
+ul[list] a:focus {
+    text-decoration: underline wavy gray;
+}
+
+ul[list]:not([largelist]) li:not([noanim]):hover {
+    transform:translateX(-10px) translateY(0px);
+    /*width:550px;*/
+    box-shadow: -10px -10px 40px rgba(0,0,0,0.14);
+    margin-top:32px;
+    margin-bottom:32px;
+    padding:36px;
+}
+
+ul[list][largelist] li:not([noanim]):hover {
+    transform:translateX(-100px);
+    width:350px;
+    box-shadow: -10px -10px 40px rgba(0,0,0,0.14);
+}
+
+/*ul[list]:not([largelist]):hover {
+    transform: skewY(-13deg) translateX(100px);
+}
+
+ul[list]:not([largelist]):hover li:not(:hover) {
+    width:250px
+}*/
+
+ul[list]:not([largelist]) li::not(:hover) {
+    transform:translateX(0px);
+}
+
+
+ul[list] li::after {
+    box-shadow:calc(var(---z) * -90px) calc(var(---z) * 90px) 50px rgba(0,0,0,0.14);
+    transition: all 0.25s ease;
+}
+
+ul[list] li:hover::after {
+    box-shadow:calc(var(---z) * -90px) calc(var(---z) * 90px) 50px rgba(0,0,0,0.37);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+div[coverdiv] {
+    position: absolute;
+    pointer-events: all;
+    float: right;
+    top:0px;
+    bottom:0px;
+    width: 90px;
+    transform: translate(330px,-95px);
+}
+
+br {
+    user-select:none !important;
+    pointer-events: none; 
+}
+
+@media print {
+    app *{
+        opacity:0
+    }
+    app::before {
+        content:"View web application on web";
+        color:gray;
+        visibility: visible;
+        opacity:1 !important;
+        background:none;
+    }
+    body,html {
+        background:none;
+    }
+}
+
+background {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:-69420;
+    opacity:0;
+    font-size:64px !important;
+    text-overflow: clip;
+    word-wrap: none;
+    transform: skewY(-15deg) scale(2) translateX(15vh);
+    color:rgba(0,0,0,0.04);
+    animation:1s ease fade-er forwards;
+    animation-delay: 1s;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+vp-back-1 floor {
+    position: absolute;
+    bottom:-25vh;
+    left:0;
+    right:0;
+    height:45vh;
+    background:#aca699;
+    background:#c9c3b4;
+    background:#363c4b;
+    background:var(--floor-color);
+    z-index:-6940;
+    transform:skewY(-15deg);
+    display:block;
+}
+
+vp-back-1 above-floor { 
+    background:transparent;
+    position: absolute;
+    box-shadow: 0px 0px 100vh rgba(0,0,0,0.1), inset 0px 100px 100vh rgba(0,0,0,0.1) ;
+    bottom:20vh;
+    left:0;
+    right:0;
+    top:-250vh;
+    z-index:65;
+    transform:skewY(-15deg);
+    display:block;
+}
+
+vp-back-1 {
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+    position: fixed;
+    z-index:-419;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    transform: none;
+    display:block;
+}
+
+input[omnibox-vm] {
+    min-height:8rem !important;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 6px;
+    outline:none;
+    padding:16px;
+        color:white;
+}
+
+[fakecontrol] {
+    cursor:pointer;
+}
+
+label, input[type=radio] {
+    display:inline !important
+}
+
+input[type=radio] {
+    filter: invert(1);
+}
+
+ul[list][wider] li, ul[list][wider] a {
+    width:550px
+}
+
+ul[list][widerer] li, ul[list][widerer] a {
+    width:840px
+}
