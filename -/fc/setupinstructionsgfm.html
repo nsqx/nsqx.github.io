@@ -20,6 +20,10 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","description":"hosting trash","headline":"Clean-up Instructions for Compiled GFM HTML","url":"https://nsqx.github.io/-/fc/setupinstructionsgfm.html"}</script>
     <link rel="stylesheet" href="/assets/css/style.css?v=81b1c3ec9cfc2f648cca8095f419da24501b4ff9">
+    <style>
+          ::selection { background: rgba(29, 153, 255, 0.438) !important; }::-moz-selection { background: rgba(29, 153, 255, 0.438) !important; }
+      div.selection {border-radius:4px;}
+    </style>
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
@@ -42,7 +46,7 @@
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"file.md"</span><span class="nt">&gt;</span>raw md<span class="nt">&lt;/a&gt;</span> | <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span><span class="nt">&gt;</span>original text<span class="nt">&lt;/a&gt;</span> | <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"next.html"</span><span class="nt">&gt;</span>next<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/h4&gt;</span>
 </code></pre></div></div>
- <embed src='data:text/html,&lt;style>* {font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; font-weight:600; background-color:rgb(246,248,250);} a {color:rgb(3,102,214); text-decoration:none; text-decoration-skip-ink: all; cursor:pointer} a:hover{text-decoration:underline 1px;} html::After{position:absolute; content:"live demo"; bottom:0px; right:6px;}</style><h4><a>raw md</a> | <a>original text</a> | <a>next</a> </h4>' style="width:100%;height:50px;border-radius:5px;">
+ <embed src='data:text/html,&lt;style>* {font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; font-weight:600; background-color:rgb(246,248,250);} a {color:rgb(3,102,214); text-decoration:none; text-decoration-skip-ink: all; cursor:pointer} a:hover{text-decoration:underline 1px;} html::After{position:absolute; content:"live demo"; bottom:0px; right:6px;}</style><h4><a>raw md</a> | <a>original text</a> | <a>next</a> </h4>' style="width:100%;height:50px;border-radius:4px;">
 </li>
 <li>
   <p>Locate the <code>script</code> which contains <code>anchors.add();</code>, and add the following code after, which replaces the link icon with an alternative character — in this case, <code>#</code> is used as a reference because of its representation of an anchor, which uses the <code>#</code> prefix in HTTPS URL schemes.</p>
@@ -54,6 +58,26 @@
   <span class="p">},</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre></div></div>
+</li>
+  <li>
+<p>Create a new stylesheet/style tag with the following:</p>
+    <div class="language-css highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>
+<span>::selection {
+    background: rgba(29, 153, 255, 0.438) !important;
+}
+
+::-moz-selection {
+    background: rgba(29, 153, 255, 0.438) !important;
+}
+
+div.selection {
+    border-radius:4px;
+}</span>
+</code></pre>
+      </div>
+    </div>
 </li>
 <li>
 <p>Add final tweaks to make the page look the way you want it to, and you're done!</p>
