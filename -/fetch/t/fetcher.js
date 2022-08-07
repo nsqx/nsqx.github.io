@@ -11,7 +11,7 @@ function setup(script){
 function matchURLformat(location = window.location){
     location = parseLocation(location);                                         // use parseLocation on inserted Location object
     
-    if (!!!location.query.startsWith('?/https://') && !!!location.query.startsWith('?/http://') && !!!location.query.startsWith('?/file://')){
+    if (!!!location.query.startsWith('?/https://') && !!!location.query.startsWith('?/http://') && !!!location.query.startsWith('?/file://') && !!!location.query.startsWith('?/')){
         document.body.innerHTML = '<pre>Error: Ensure that the inserted query parameter begins with the following format: \'?/{https | http}://{url}\'</pre>';
         console.log(location);
     } else {
