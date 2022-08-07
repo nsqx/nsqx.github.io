@@ -44,7 +44,7 @@ function sendXHRrequest(destination){
     xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', e => {
-        document.querySelector('html').innerHTML = e.responseXML
+        document.querySelector('html').innerHTML = xhr.responseXML
     })
 
     xhr.open('POST', destination);
