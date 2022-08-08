@@ -15,7 +15,7 @@ function matchURLformat(location = window.location){
         document.body.innerHTML = '<pre>Error: Ensure that the inserted query parameter begins with the following format: \'?/{https | http}://{url}\'</pre>';
         console.log(location);
     } else {
-        sendXHRrequest(location.query.slice(1));
+        sendXHRrequest(location.query.slice(2));
     }
 }
 
