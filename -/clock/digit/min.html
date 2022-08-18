@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id=document_title>Digit Clock | nsq | Beta-testing</title>
+  <script>
+    function _(e){return document.querySelector(e)};
+    function clearfade(prefix){
+      for (const e of document.querySelectorAll(`.${prefix}`)){
+        e.classList.remove('notfaded')
+      }
+    }
+    function iter(selector, func){
+      for (const element of document.querySelectorAll(selector)){
+        func(element)
+      }
+    }
+    function timeupdate(){
+      gethours = (new Date).getHours()
+      getmins = (new Date).getMinutes()
+      getsecs = (new Date).getSeconds()
+      _('#timeu').innerText =
+                            `${
+                            (gethours < 10 && gethours > 0) ?
+                              '0' + gethours :
+                              (gethours >= 10 && gethours <= 12 || gethours == 0) ?
+                                gethours :
+                                (gethours > 12) ?
+                                  (
+                                    (gethours - 12 < 10) ?
+                                      '0' + (gethours - 12) :
+                                      (gethours - 12)
+                                  ) :
+                                  gethours
+                            }:${
+                            (getmins < 10) ?
+                              '0' + getmins :
+                              getmins
+                            }:${
+                            (getsecs < 10) ?
+                              '0' + getsecs :
+                              getsecs
+                            } ${
+                              (gethours > 12) ?
+                                'PM':
+                                'AM'
+                            }
+                            `
+      if (getmins %2 == 1){
+        _('#line').style.marginLeft = 'calc(50% - 16px)'
+      }else{
+        _('#line').style.marginLeft = '0%'
+      }
+      _('#innerfill').style.width = getsecs * 100 / 60 + '%'
+    }
+
+    function syncsecond(func){
+      millisectimer = setInterval(()=>{
+        if (Math.round((new Date).getMilliseconds()/10) == 0){
+          clearInterval(millisectimer)
+          func()
+          console.log('synced')
+        }
+      }, 1)
+    }
+
+    document.addEventListener("DOMContentLoaded", e=>{
+      timeupdate()
+
+      syncsecond(()=>{
+        setInterval(e=>{
+          timeupdate()
+        }, 1000)
+      })
+    })
+
+    document.addEventListener("wheel", e=>{
+      e.preventDefault()
+    }, {passive: false})
+    
+  </script>
+  <style>
+    body,html {
+      color-scheme: dark;
+      overflow-x: hidden;
+      background-color: #202020;
+      padding:0px;
+      display:flex;
+    }
+    body {
+      background-color: #e6e6e6;color: #3d3d3d;
+      filter: invert(1);
+      font-family: Helvetica, Arial, sans-serif;
+      letter-spacing: -2px;
+      font-weight:600;
+      display: flex;
+      font-size: 64px;
+      user-select: none;
+      padding: 64px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width:100vw;
+      height:100vh;
+      margin:0;
+      padding:0;
+    }
+    * {
+      pointer-events: none;
+    }
+    i {
+      font-style: normal !important;
+      /*text-shadow: -2px -2px #202020, 2px -2px #202020, -2px 2px #202020, 2px 2px #202020;*/
+      text-shadow: 0px 0px 3px #3d3d3d;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    hr {
+      border:none;
+    }
+    .flexblock {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height:100%;
+      max-width:860px;
+      text-align:justify;
+      margin:0px;
+    }
+    #toptimedisp {
+      margin-top:-100px;
+      margin-bottom:50px;
+      text-shadow: rgba(255, 232, 210, 0.7) 0px 0px 6px;
+    }
+    #line {
+      width:calc(50% - 16px);
+      height:4px;
+      border: #3d3d3d solid 2px;
+      box-sizing: content-box;
+      border-radius: 0px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding:0px;
+      transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0px 0px 3px #3d3d3d;
+      opacity: .8;
+      position: absolute;
+      bottom:0px;
+      left:16px;
+      right:16px;
+    }
+    #innerfill {
+      height:100%;
+      border-radius:0px;
+      background:#3d3d3d;
+      transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      margin: 0px;
+      margin-left:-1px;
+      margin-right:-1px;
+      box-shadow: 0px 0px 3px #3d3d3d;
+      padding: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div class="flexblock">
+    <i id=timeu>00:00:00 AP</i>
+    <div id=line>
+      <div id=innerfill></div>
+    </div>
+  </div>
+</body>
+</html>
