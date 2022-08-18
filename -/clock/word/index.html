@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id=document_title>Word Clock | nsq</title>
+  <script>
+    function _(e){return document.querySelector(e)};
+    function clearfade(prefix){
+      for (const e of document.querySelectorAll(`.${prefix}`)){
+        e.classList.remove('notfaded')
+      }
+    }
+    function timeupdate(){
+      gethours = (new Date).getHours()
+        if (gethours <= 12 && gethours > 0){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          _(`#meridiana`).classList.add('notfaded')
+        }else if (gethours > 12){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours - 12}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          _(`#meridianp`).classList.add('notfaded')
+        }else if (gethours == 0){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours + 12}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          _(`#meridianp`).classList.add('notfaded')
+        }
+
+        getminutes = (new Date).getMinutes()
+        if ((getminutes - getminutes % 10)/10 != 0 && (getminutes - getminutes % 10)/10 != 1 ){
+          clearfade("tenminn")
+          try{
+            _(`#tenmin${(getminutes - getminutes % 10)/10}`).classList.add('notfaded')
+          }catch{};
+          try{
+            clearfade("minmoren")
+            _(`#minmore${(getminutes % 10)}`).classList.add('notfaded')
+          }catch{}
+          try{
+            clearfade("minuten")
+          }catch{}
+        }else{
+          clearfade("minuten")
+          try {
+            _(`#minute${(getminutes)}`).classList.add('notfaded')
+          }catch{}
+        }
+        if (getminutes == 0){
+          clearfade('minmoren')
+          clearfade('tenminn')
+        }
+    }
+    
+    function syncsecond(func){
+      millisectimer = setInterval(()=>{
+        if (Math.round((new Date).getMilliseconds()/100) == 0){
+          clearInterval(millisectimer)
+          func()
+          console.log('synced')
+        }
+      }, 10)
+    }
+    function syncminute(func){
+      sectimer = setInterval(()=>{
+        if (Math.round((new Date).getSeconds()) == 0){
+          clearInterval(sectimer)
+          func()
+          console.log('synced')
+        }
+      }, 100)
+    }
+
+
+    document.addEventListener("DOMContentLoaded", e=>{
+      timeupdate()
+
+
+
+      syncsecond(()=>{
+        syncminute(()=>{
+          setInterval(e=>{
+            timeupdate()
+          }, 5000)
+        })
+      })
+    })
+
+    document.addEventListener("wheel", e=>{
+      e.preventDefault()
+    }, {passive: false})
+    
+  </script>
+  <style>
+    body,html {
+      color-scheme: dark;
+      overflow-x: hidden;
+      background-color: #202020;
+      padding:0px;
+      display:flex;
+    }
+    body {
+      background-color: #202020;color: #ffffff;
+      font-family: Helvetica, Arial, serif, times, 'times new roman', sans-serif;
+      text-transform: uppercase;
+      font-weight:600;
+      letter-spacing: -1px;
+      display: flex;
+      font-size: 42px;
+      user-select: none;
+      padding: 64px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width:100vw;
+      height:100vh;
+      margin:0;
+      padding:0;
+    }
+    * {
+      pointer-events: none;
+    }
+    i {
+      font-style: normal !important;
+      margin-inline-end: 15px;
+      margin-inline-start: 15px;
+      filter: brightness(.18);
+      text-shadow: none;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .notfaded {
+      text-shadow: rgb(255, 232, 210) 0px 0px 6px;
+      filter: brightness(1);
+    }
+    hr {
+      border:none;
+    }
+    .flexblock {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height:200%;
+      max-width:960px;
+      text-align:justify;
+      margin:0px;
+      transform:scaleX(.95)
+    }
+    #toptimedisp {
+      margin-top:-100px;
+      margin-bottom:50px;
+      text-shadow: rgba(255, 232, 210, 0.7) 0px 0px 6px;
+    }
+  </style>
+</head>
+<body>
+    <div class="flexblock">
+      <i class=notfaded>It is</i>
+
+      <i class=hourn id=hour1>one</i><hr>
+      <i class=hourn id=hour2>two</i><hr>
+      <i class=hourn id=hour3>three</i><hr>
+      <i class=hourn id=hour4>four</i><hr>
+      <i class=hourn id=hour5>five</i><hr>
+      <i class=hourn id=hour6>six</i><hr>
+      <i class=hourn id=hour7>seven</i><hr>
+      <i class=hourn id=hour8>eight</i><hr>
+      <i class=hourn id=hour9>nine</i><hr>
+      <i class=hourn id=hour10>ten</i><hr>
+      <i class=hourn id=hour11>eleven</i><hr>
+      <i class=hourn id=hour12>twelve</i><hr>
+
+
+      <i class=tenminn id=tenmin2>twenty</i><hr>
+      <i class=tenminn id=tenmin3>thirty</i><hr>
+      <i class=tenminn id=tenmin4>fourty</i><hr>
+      <i class=tenminn id=tenmin5>fifty</i><hr>
+
+      <i class=minmoren id=minmore1>one</i><hr>
+      <i class=minmoren id=minmore2>two</i><hr>
+      <i class=minmoren id=minmore3>three</i><hr>
+      <i class=minmoren id=minmore4>four</i><hr>
+      <i class=minmoren id=minmore5>five</i><hr>
+      <i class=minmoren id=minmore6>six</i><hr>
+      <i class=minmoren id=minmore7>seven</i><hr>
+      <i class=minmoren id=minmore8>eight</i><hr>
+      <i class=minmoren id=minmore9>nine</i><hr>
+
+      <i class=minuten id=minute1>o' one</i><hr>
+      <i class=minuten id=minute2>o' two</i><hr>
+      <i class=minuten id=minute3>o' three</i><hr>
+      <i class=minuten id=minute4>o' four</i><hr>
+      <i class=minuten id=minute5>o' five</i><hr>
+      <i class=minuten id=minute6>o' six</i><hr>
+      <i class=minuten id=minute7>o' seven</i><hr>
+      <i class=minuten id=minute8>o' eight</i><hr>
+      <i class=minuten id=minute9>o' nine</i><hr>
+      <i class=minuten id=minute10>ten</i><hr>
+      <i class=minuten id=minute11>eleven</i><hr>
+      <i class=minuten id=minute12>twelve</i><hr>
+      <i class=minuten id=minute13>thirteen</i><hr>
+      <i class=minuten id=minute14>fourteen</i><hr>
+      <i class=minuten id=minute15>fifteen</i><hr>
+      <i class=minuten id=minute16>sixteen</i><hr>
+      <i class=minuten id=minute17>seventeen</i><hr>
+      <i class=minuten id=minute18>eighteen</i><hr>
+      <i class=minuten id=minute19>nineteen</i><hr>
+
+
+      <i class=meridiann id=meridiana>A.M.</i><hr>
+      <i class=meridiann id=meridianp>P.M.</i>
+    </div>
+
+</body>
+</html>
