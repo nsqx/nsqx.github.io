@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id=document_title>Word Clock | nsq | Beta-testing</title>
+  <script>
+    function _(e){return document.querySelector(e)};
+    function clearfade(prefix){
+      for (const e of document.querySelectorAll(`.${prefix}`)){
+        e.classList.remove('notfaded')
+      }
+    }
+    function iter(selector, func){
+      for (const element of document.querySelectorAll(selector)){
+        func(element)
+      }
+    }
+    function timeupdate(){
+      gethours = (new Date).getHours()
+        if (gethours <= 12 && gethours > 0){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          if (gethours < 9){
+            _(`#meridiana1`).classList.add('notfaded')
+          }else{
+            _(`#meridiana2`).classList.add('notfaded')
+          }
+        }else if (gethours > 12){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours - 12}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          if (gethours > 17){
+            _(`#meridianp2`).classList.add('notfaded')
+          }else{
+            _(`#meridianp1`).classList.add('notfaded')
+          }
+        }else if (gethours == 0){
+          clearfade("hourn")
+          try{
+            _(`#hour${gethours + 12}`).classList.add('notfaded')
+          }catch{}
+          clearfade("meridiann")
+          _(`#meridianp2`).classList.add('notfaded')
+        }
+
+        getminutes = (new Date).getMinutes()
+        if ((getminutes - getminutes % 10)/10 != 0 && (getminutes - getminutes % 10)/10 != 1 ){
+          clearfade("tenminn")
+          try{
+            _(`#tenmin${(getminutes - getminutes % 10)/10}`).classList.add('notfaded')
+          }catch{};
+          try{
+            clearfade("minmoren")
+          }catch{}
+          try{
+            _(`#minmore${(getminutes % 10)}`).classList.add('notfaded')
+          }catch{}
+          try{
+            clearfade("minuten")
+          }catch{}
+        }else{
+          clearfade("minuten")
+          try{
+            _(`#minute${(getminutes)}`).classList.add('notfaded')
+          }catch{}
+        }
+        if (getminutes == 0){
+          clearfade('endunitn')
+          _(`#endunitw`).classList.add('notfaded')
+          clearfade('minmoren')
+          clearfade('tenminn')
+        }else{
+          clearfade('endunitn')
+          _(`#endunitm`).classList.add('notfaded')
+        }
+        toptimedisp.innerText = ''
+        iter('i.notfaded', e=>{toptimedisp.innerText+=e.innerText}) 
+    }
+
+    function syncsecond(func){
+      millisectimer = setInterval(()=>{
+        if (Math.round((new Date).getMilliseconds()/10) == 0){
+          clearInterval(millisectimer)
+          func()
+          console.log('synced')
+        }
+      }, 1)
+    }
+    function syncminute(func){
+      sectimer = setInterval(()=>{
+        if (Math.round((new Date).getSeconds()) == 0){
+          clearInterval(sectimer)
+          func()
+          console.log('synced')
+        }
+      }, 100)
+    }
+
+    
+
+
+
+    
+    document.addEventListener("DOMContentLoaded", e=>{
+      timeupdate()
+
+
+
+      syncsecond(()=>{
+        timeupdate()
+        syncminute(()=>{
+          timeupdate()
+          setInterval(e=>{
+            timeupdate()
+          }, 30000)
+        })
+      })
+    })
+
+    document.addEventListener("wheel", e=>{
+      e.preventDefault()
+    }, {passive: false})
+    
+  </script>
+  <style>
+    body,html {
+      color-scheme: dark;
+      overflow-x: hidden;
+      background-color: #202020;
+      padding:0px;
+      display:flex;
+    }
+    body {
+      background-color: #202020;color: #ffffff;
+      font-family: times, 'times new roman', sans-serif;
+      letter-spacing: -1px;
+      display: flex;
+      font-size: 42px;
+      user-select: none;
+      padding: 64px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width:100vw;
+      height:100vh;
+      margin:0;
+      padding:0;
+    }
+    * {
+      pointer-events: none;
+    }
+    i {
+      font-style: normal !important;
+      margin-inline-end: 15px;
+      margin-inline-start: 15px;
+      filter: brightness(.2);
+      text-shadow: none;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .notfaded {
+      text-shadow: rgb(255, 232, 210) 0px 0px 6px;
+      filter: brightness(1);
+    }
+    hr {
+      border:none;
+    }
+    .flexblock {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height:200%;
+      max-width:860px;
+      text-align:justify;
+      margin:0px;
+    }
+    #toptimedisp {
+      margin-top:-100px;
+      margin-bottom:50px;
+      text-shadow: rgba(255, 232, 210, 0.7) 0px 0px 6px;
+    }
+  </style>
+</head>
+<body>
+    <i id=toptimedisp>现在是</i>
+    <div class="flexblock">
+      <i class=notfaded>现在是</i>
+
+      <i class=meridiann id=meridiana1>早上</i><hr>
+      <i class=meridiann id=meridiana2>上午</i><hr>
+      <i class=meridiann id=meridianp1>下午</i><hr>
+      <i class=meridiann id=meridianp2>晚上</i><hr>
+
+
+      <i class=hourn id=hour1>一</i><hr>
+      <i class=hourn id=hour2>两</i><hr>
+      <i class=hourn id=hour3>三</i><hr>
+      <i class=hourn id=hour4>四</i><hr>
+      <i class=hourn id=hour5>五</i><hr>
+      <i class=hourn id=hour6>六</i><hr>
+      <i class=hourn id=hour7>七</i><hr>
+      <i class=hourn id=hour8>八</i><hr>
+      <i class=hourn id=hour9>九</i><hr>
+      <i class=hourn id=hour10>十</i><hr>
+      <i class=hourn id=hour11>十一</i><hr>
+      <i class=hourn id=hour12>十二</i><hr>
+
+      <i class=notfaded>点</i>
+
+
+      <i class=tenminn id=tenmin2>二十</i><hr>
+      <i class=tenminn id=tenmin3>三十</i><hr>
+      <i class=tenminn id=tenmin4>四十</i><hr>
+      <i class=tenminn id=tenmin5>五十</i><hr>
+
+      <i class=minmoren id=minmore1>一</i><hr>
+      <i class=minmoren id=minmore2>二</i><hr>
+      <i class=minmoren id=minmore3>三</i><hr>
+      <i class=minmoren id=minmore4>四</i><hr>
+      <i class=minmoren id=minmore5>五</i><hr>
+      <i class=minmoren id=minmore6>六</i><hr>
+      <i class=minmoren id=minmore7>七</i><hr>
+      <i class=minmoren id=minmore8>八</i><hr>
+      <i class=minmoren id=minmore9>九</i><hr>
+
+      <i class=minuten id=minute1>〇一</i><hr>
+      <i class=minuten id=minute2>〇二</i><hr>
+      <i class=minuten id=minute3>〇三</i><hr>
+      <i class=minuten id=minute4>〇四</i><hr>
+      <i class=minuten id=minute5>〇五</i><hr>
+      <i class=minuten id=minute6>〇六</i><hr>
+      <i class=minuten id=minute7>〇七</i><hr>
+      <i class=minuten id=minute8>〇八</i><hr>
+      <i class=minuten id=minute9>〇九</i><hr>
+      <i class=minuten id=minute10>十</i><hr>
+      <i class=minuten id=minute11>十一</i><hr>
+      <i class=minuten id=minute12>十二</i><hr>
+      <i class=minuten id=minute13>十三</i><hr>
+      <i class=minuten id=minute14>十四</i><hr>
+      <i class=minuten id=minute15>十五</i><hr>
+      <i class=minuten id=minute16>十六</i><hr>
+      <i class=minuten id=minute17>十七</i><hr>
+      <i class=minuten id=minute18>十八</i><hr>
+      <i class=minuten id=minute19>十九</i><hr>
+
+      <i class='endunitn notfaded' id=endunitm>分</i>
+      <i class='endunitn' id=endunitw>整</i>
+    </div>
+
+</body>
+</html>
