@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id=document_title>Scrolling Digit Clock | nsq</title>
+  <script>
+    function _(e){return document.querySelector(e)};
+    function clearfade(prefix){
+      for (const e of document.querySelectorAll(`.${prefix}`)){
+        e.classList.remove('notfaded')
+      }
+    }
+    function iter(selector, func){
+      for (const element of document.querySelectorAll(selector)){
+        func(element)
+      }
+    }
+    function timeupdate(){
+      gethours = (new Date).getHours()
+      getmins = (new Date).getMinutes()
+      getsecs = (new Date).getSeconds()
+
+      if (gethours >= 12){
+        clearfade('meridiann')
+      _(`#meridianp`).classList.add('notfaded')
+      meridiancol.style.transform = 'translateY(-84px)'
+      }else{
+        clearfade('meridiann')
+      _(`#meridiana`).classList.add('notfaded')
+      meridiancol.style.transform = 'translateY(0px)'
+      }
+
+      if (gethours > 12){
+        gethours -= 12
+      }
+
+      hourcol.style.transform = 'translateY(' + (-(gethours) * 84) + 'px)'
+      minstcol.style.transform = 'translateY(' + (-(getmins - getmins % 10)/10 * 84) + 'px)'
+      minsocol.style.transform = 'translateY(' + (-getmins % 10) * 84 + 'px)'
+      secstcol.style.transform = 'translateY(' + (-(getsecs - getsecs % 10)/10 * 84) + 'px)'
+      secsocol.style.transform = 'translateY(' + (-getsecs % 10) * 84 + 'px)'
+
+      clearfade('hourn')
+      _(`#hour${gethours}`).classList.add('notfaded')
+      clearfade('mintn')
+      _(`#mint${(getmins - getmins % 10)/10}`).classList.add('notfaded')
+      clearfade('minon')
+      _(`#mino${getmins % 10}`).classList.add('notfaded')
+      clearfade('sectn')
+      _(`#sect${(getsecs - getsecs % 10)/10}`).classList.add('notfaded')
+      clearfade('secon')
+      _(`#seco${getsecs % 10}`).classList.add('notfaded')
+
+      _('#innerfill').style.height = getsecs * 100 / 60 + '%'
+
+      scrolltothis.scrollIntoView({behavior:'smooth', block:'center'})
+    }
+
+    function syncsecond(func){
+      millisectimer = setInterval(()=>{
+        if (Math.round((new Date).getMilliseconds()/10) == 0){
+          clearInterval(millisectimer)
+          func()
+          console.log('synced')
+        }
+      }, 1)
+    }
+
+    document.addEventListener("DOMContentLoaded", e=>{
+      setTimeout(timeupdate, 10)
+
+      syncsecond(()=>{
+        flexblockstyle.innerText = `.flexblock{transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);}`;
+        setInterval(e=>{
+          timeupdate()
+        }, 1000)
+      })
+    })
+
+    document.addEventListener("wheel", e=>{
+      e.preventDefault()
+    }, {passive: false})
+    
+  </script>
+  <style>
+    body,html {
+      color-scheme: dark;
+      overflow: hidden;
+      padding:0px;
+      display:flex;
+    }
+    body {
+      background-color: #191919;color: #c2c2c2;
+      color-scheme: dark;
+      font-family: Helvetica, Arial, sans-serif;
+      letter-spacing: -2px;
+      font-weight:600;
+      display: flex;
+      font-size: 64px;
+      user-select: none;
+      padding: 64px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width:100vw;
+      height:100vh;
+      margin:0;
+      padding:0;
+    }
+    * {
+      pointer-events: none;
+    }
+    i {
+      font-style: normal !important;
+      text-shadow: -2px -2px #c2c2c2, 2px -2px #c2c2c2, -2px 2px #c2c2c2, 2px 2px #c2c2c2;
+      color:#191919;
+      opacity: .5;
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    hr {
+      border:none;
+    }
+    .flexblock {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      line-height:84px;
+      max-width:860px;
+      text-align:justify;
+      margin:0px;
+    }
+    .outerflexbxcontainer{
+      /*transform:skewX(-12deg);  */  
+      widht:100%;  
+    }
+    .verticalflex {
+        flex-direction: column;
+    }
+    .notfaded {
+      text-shadow: 0px 0px 3px #c2c2c2;
+      opacity:1;
+      color: #c2c2c2;
+      font-weight: 600 !important;
+    }
+    #toptimedisp {
+      margin-top:-100px;
+      margin-bottom:50px;
+      text-shadow: rgba(255, 232, 210, 0.7) 0px 0px 6px;
+    }
+    #line {
+      width:2px;
+      height:calc(100% - 32px);
+      border: #c2c2c2 solid 1px;
+      box-sizing: content-box;
+      border-radius: 0px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding:0px;
+      transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0px 0px 3px #c2c2c2;
+      opacity: .2;
+      position: fixed;
+      bottom:16px;
+      right:0px;
+      top:16px;
+      z-index:100;
+    }
+    #innerfill {
+      height:100%;
+      border-radius:0px;
+      background:#c2c2c2;
+      transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      margin: 0px;
+      margin-left:-1px;
+      margin-right:-1px;
+      box-shadow: 0px 0px 3px #c2c2c2;
+      padding: 0px;
+    }
+    #topshadow {
+    position:fixed;
+    left:0px;
+    top:0px;
+    right:0px;
+    height:50vh;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, #191919 80%);
+    pointer-events: none !important;
+    z-index: 6;
+    }
+    #bottomshadow {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    height:50vh;
+    background: linear-gradient(0deg, #191919 20%, rgba(255,255,255,0) 100%);
+    pointer-events: none !important;
+    z-index: 5;
+    }
+    [aftercontent]::after {
+      content:attr(aftercontent);
+    }
+    [beforecontent]::before {
+      content:attr(beforecontent);
+    }
+    .smallertext{
+      transform:scale(.5);
+      opacity:.1
+    }
+  </style>
+  <style id=flexblockstyle>.flexblock{
+      transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }</style>
+</head>
+<body>
+  <div class="flexblock outerflexbxcontainer">
+  <i beforecontent=\ class=smallertext>&nbsp;</i>
+    <div class="flexblock verticalflex" id=hourcol>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <i class=hourn id=hour0>00</i>
+        <i class=hourn id=hour1>01</i>
+        <i class=hourn id=hour2>02</i>
+        <i class=hourn id=hour3>03</i>
+        <i class=hourn id=hour4>04</i>
+        <i class=hourn id=hour5>05</i>
+        <i class=hourn id=hour6>06</i>
+        <i class=hourn id=hour7>07</i>
+        <i class=hourn id=hour8>08</i>
+        <i class=hourn id=hour9>09</i>
+        <i class=hourn id=hour10>10</i>
+        <i class=hourn id=hour11>11</i>
+        <i class=hourn id=hour12>12</i>
+    </div>
+
+    <i>:</i>
+
+    <div class="flexblock verticalflex" id=minstcol>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <i class=mintn id=mint0>0</i>
+        <i class=mintn id=mint1>1</i>
+        <i class=mintn id=mint2>2</i>
+        <i class=mintn id=mint3>3</i>
+        <i class=mintn id=mint4>4</i>
+        <i class=mintn id=mint5>5</i>
+    </div>
+    <div class="flexblock verticalflex" id=minsocol>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <i class=minon id=mino0>0</i>
+        <i class=minon id=mino1>1</i>
+        <i class=minon id=mino2>2</i>
+        <i class=minon id=mino3>3</i>
+        <i class=minon id=mino4>4</i>
+        <i class=minon id=mino5>5</i>
+        <i class=minon id=mino6>6</i>
+        <i class=minon id=mino7>7</i>
+        <i class=minon id=mino8>8</i>
+        <i class=minon id=mino9>9</i>
+    </div>
+
+    <i id=scrolltothis>:</i>
+
+    <div class="flexblock verticalflex" id=secstcol>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <i class=sectn id=sect0>0</i>
+        <i class=sectn id=sect1>1</i>
+        <i class=sectn id=sect2>2</i>
+        <i class=sectn id=sect3>3</i>
+        <i class=sectn id=sect4>4</i>
+        <i class=sectn id=sect5>5</i>
+    </div>
+    <div class="flexblock verticalflex" id=secsocol>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+        <i class=secon id=seco0>0</i>
+        <i class=secon id=seco1>1</i>
+        <i class=secon id=seco2>2</i>
+        <i class=secon id=seco3>3</i>
+        <i class=secon id=seco4>4</i>
+        <i class=secon id=seco5>5</i>
+        <i class=secon id=seco6>6</i>
+        <i class=secon id=seco7>7</i>
+        <i class=secon id=seco8>8</i>
+        <i class=secon id=seco9>9</i>
+    </div>
+    <i>&nbsp;</i>
+    <i>&nbsp;</i>
+    <div class="flexblock verticalflex" id=meridiancol>
+      <br>
+      <br>
+        <i class=meridiann id=meridiana>AM</i>
+        <i class=meridiann id=meridianp>PM</i>
+        <br>
+    </div>
+  <i aftercontent=\ class=smallertext>&nbsp;</i>
+
+
+  </div>
+  <div id=topshadow></div>
+  <div id=bottomshadow></div>
+  <div id=thetwolinethingys></div>
+  <div id=line>
+    <div id=innerfill></div>
+</div>
+</body>
+</html>
