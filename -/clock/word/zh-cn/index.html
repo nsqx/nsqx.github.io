@@ -107,6 +107,10 @@
     
     document.addEventListener("DOMContentLoaded", e=>{
       timeupdate()
+      
+      if (window.location.search == '?fallback'){
+      window.history.replaceState('','','/-/clock/?ff')
+      }
 
 
 
