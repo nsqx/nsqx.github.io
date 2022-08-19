@@ -22,15 +22,17 @@
                             `${
                             (gethours < 10 && gethours > 0) ?
                               '0' + gethours :
-                              (gethours >= 10 && gethours <= 12 || gethours == 0) ?
+                              (gethours >= 10 && gethours <= 12) ?
                                 gethours :
-                                (gethours > 12) ?
-                                  (
-                                    (gethours - 12 < 10) ?
-                                      '0' + (gethours - 12) :
-                                      (gethours - 12)
-                                  ) :
-                                  gethours
+                                (gethours == 0) ?
+                                  '0' + gethours :
+                                  (gethours > 12) ?
+                                    (
+                                      (gethours - 12 < 10) ?
+                                        '0' + (gethours - 12) :
+                                        (gethours - 12)
+                                    ) :
+                                    gethours
                             }:${
                             (getmins < 10) ?
                               '0' + getmins :
@@ -40,16 +42,16 @@
                               '0' + getsecs :
                               getsecs
                             } ${
-                              (gethours > 12) ?
+                              (gethours >= 12) ?
                                 'PM':
                                 'AM'
                             }
                             `
-      if (getmins %2 == 1){
+      (getmins %2 == 1) ? (
         _('#line').style.marginLeft = 'calc(50% - 16px)'
-      }else{
+      ) : (
         _('#line').style.marginLeft = '0%'
-      }
+      )
       _('#innerfill').style.width = getsecs * 100 / 60 + '%'
     }
 
