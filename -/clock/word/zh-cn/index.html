@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title id=document_title>Word Clock | nsq | Beta-testing</title>
+  <title id=document_title>Word Clock | nsq | zh-cn</title>
   <script>
     function _(e){return document.querySelector(e)};
     function clearfade(prefix){
@@ -64,6 +64,8 @@
           }catch{}
         }else{
           clearfade("minuten")
+          clearfade("minmoren")
+          clearfade("tenminn")
           try{
             _(`#minute${(getminutes)}`).classList.add('notfaded')
           }catch{}
