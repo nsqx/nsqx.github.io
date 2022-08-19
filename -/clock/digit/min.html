@@ -47,11 +47,11 @@
                                 'AM'
                             }
                             `
-      (getmins %2 == 1) ? (
+      if (getmins %2 == 1){
         _('#line').style.marginLeft = 'calc(50% - 16px)'
-      ) : (
+      }else{
         _('#line').style.marginLeft = '0%'
-      )
+      }
       _('#innerfill').style.width = getsecs * 100 / 60 + '%'
     }
 
