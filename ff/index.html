@@ -49,7 +49,7 @@ link.download = 'fallforward-' + '-' + (new Date).getDate() + '-' + (new Date).g
                 .then( function (response) {return response.json();} )
                 .then( function (data) {
                     if(ref != "!!!!!!!!!!!!!!!!!!!!!!FALLFORWARD:FELL_FLAT"){
-                        if (data.get[ref].toString() != 'undefined'){
+                        if (data.get[ref] != undefined){
                         window.location.href = data.get[ref]
                         }else{
                             document.body.innerHTML = 
