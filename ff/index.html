@@ -49,7 +49,37 @@ link.download = 'fallforward-' + '-' + (new Date).getDate() + '-' + (new Date).g
                 .then( function (response) {return response.json();} )
                 .then( function (data) {
                     if(ref != "!!!!!!!!!!!!!!!!!!!!!!FALLFORWARD:FELL_FLAT"){
+                        if (data.get[ref].toString() != 'undefined'){
                         window.location.href = data.get[ref]
+                        }else{
+                            document.body.innerHTML = 
+                        `<title>! Fallforward destination is absent</title>
+<CODE id=errorstack>! Fallforward destination is absent
+! FALLFORWARD: FELL_FLAT
+!
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY>!
+! this.location
+!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'
+!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'
+!     .search:          \'<a draggable=true>${window.location.search}</a>\'
+!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'
+!     .host:            \'<a draggable=true>${window.location.host}</a>\'
+!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'
+!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'
+! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'
+! ref:                  \'<a draggable=true>${ref}</a>\'
+! universalpath:        \'<a draggable=true>${universalpath}</a>\'
+!
+!                                            ================                                         </DETAILS>! 
+! Error details:
+<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>!
+! -------------------------------------------------------------------------------------------------- #
+
+<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>
+
+<div class="hoverendlabel"><br>Fallforward service / nsq / <fail>Failure</fail></div>`;
+                    debug_details_expand_button.click();;
+                        }
                     }else{
                         document.body.innerHTML = 
                         `<title>! Fallforward destination is absent</title>
