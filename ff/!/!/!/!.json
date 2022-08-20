@@ -1,5 +1,11 @@
 {
   "get": {
     "gh.clock": "https://nsqx.github.io/-/clock/"
+    "gh.clock.word": "https://nsqx.github.io/-/clock/word/"
+    "gh.clock.word.zh-cn": "https://nsqx.github.io/-/clock/word/zh-cn"
+    "gh.clock.digit.min": "https://nsqx.github.io/-/clock/digit/min"
+    "gh.clock.digit.scroll": "https://nsqx.github.io/-/clock/digit/scroll"
+    "gh.clock.word.scroll": "https://nsqx.github.io/-/clock/word/scroll/"
+    "gh.clock.word.scroll.zh-cn": "https://nsqx.github.io/-/clock/word/scroll/zh-cn"
   }
 }
