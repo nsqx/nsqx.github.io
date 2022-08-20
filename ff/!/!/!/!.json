@@ -1,7 +1,5 @@
 {
   "get": {
-    "gh": {
-      "clock": "https://nsqx.github.io/-/clock/"
-    }
+    "gh.clock": "https://nsqx.github.io/-/clock/"
   }
 }
