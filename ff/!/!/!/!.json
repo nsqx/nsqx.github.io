@@ -1,9 +1,7 @@
 {
   "get": {
-    "default": "<pre>102 Processing request...</pre>",
-    "error": "<pre>404 Data not found.</pre>",
     "fetch": {
-      "a0new": "yea lmao",
+      "a0new": "yea lmao"
     }
   }
 }
