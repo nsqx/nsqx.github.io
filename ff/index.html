@@ -1,0 +1,187 @@
+<html><!---not ?64 version--->
+<head>
+    <style>* {background:white;}a,fakea{color:#0969da;text-decoration:none;cursor:pointer;user-select:text;}a:hover,fakea:hover{text-decoration:underline solid 1px;}body,html{display:flex;font-size:13px;justify-content:center;}html{zoom:1;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";overflow:auto;height:100vh;width:100vw}html{overflow:auto;overflow-x:hidden;height:100vh;width:100vw}code{padding-top:32px;padding-bottom:42px;white-space:pre-wrap;font-family:Consolas,Courier,'Courier New',monospace;flex-direction:column;width:840px;height:fit-content;max-width:840px;display:block;overflow:visible}summary{cursor:pointer;}details>summary:first-of-type{list-style-position:outside!important;}ln{list-style-type:decimal-leading-zero;display:list-item;counter-increment:list-item;content:counter(list-item);}.hoverendlabel{position:fixed;text-align:center;bottom:0px;left:0px;right:0px;z-index:12370192308120938;height:42px;background:linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, .8) 50%, rgba(255,255,255,0) 100%);user-select:none;pointer-events:none;font-weight:400;}.hoverendlabel :not(br){font-size:14px}div{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";}fail{color:#cf222e; display:inline;}details{margin:0px;padding:0px;}::selection{ background: rgba(29, 153, 255, 0.511) !important;}::-moz-selection { background: rgba(29, 153, 255, 0.511) !important; }success{color:#1a7f37; display:inline;}[stickytop]{position:sticky;top:0px;padding:0px;}body{flex-direction:column; justify-content:start; align-items: center;}[stickytopbottom]{position:sticky;top:0px;bottom:0px;}[stickybottommore]{position:sticky;bottom:42px;padding:0px;}</style>
+</head>
+<body>
+    <title>102 Processing Fallforward...</title>
+    <pre>! 102 Processing Fallforward...</pre><div class="hoverendlabel"><br>Fallforward service / nsq</div>
+    <script id=s>
+        function downloadlogman(){
+            let link = document.createElement('a');
+link.download = 'fallforward-' + '-' + (new Date).getDate() + '-' + (new Date).getMonth() + '-' + (new Date).getFullYear() + '--' + (new Date).getHours() + '-' + (new Date).getMinutes() + '-' + (new Date).getSeconds() + '-log.txt';let blob = new Blob([document.querySelector('#errorstack').innerText], {type: 'text/plain'});link.href = URL.createObjectURL(blob);link.click();URL.revokeObjectURL(link.href);
+        }
+        window.onload=(function(){s.innerHTML=''
+                var fallforward = "/ff/!/!/!/!.json";
+                if(window.location.hash != ''){
+                    var ref = window.location.hash.slice(2); // using format https://baseurl.tld/path/fallforward/#/JSONref
+                    var universalpath = window.location.hash.slice(1); // using format https://baseurl.tld/path/fallforward/#/JSONref
+                }else{
+                    var ref = "!!!!!!!!!!!!!!!!!!!!!!FALLFORWARD:FELL_FLAT";
+                };
+
+            if (window.location.hash.startsWith('#-')){
+                setTimeout(()=>{
+                window.location.href = ref;}, 500)
+                document.body.innerHTML = `<title>! Falling forward</title>
+<CODE id=errorstack>! Falling forward
+! FALLFORWARD: FALLING_FORWARD
+!
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY>!
+! this.location
+!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'
+!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'
+!     .search:          \'<a draggable=true>${window.location.search}</a>\'
+!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'
+!     .host:            \'<a draggable=true>${window.location.host}</a>\'
+!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'
+!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'
+! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'
+! ref:                  \'<a draggable=true>${ref}</a>\'
+! universalpath:        \'<a draggable=true>${universalpath}</a>\'
+!
+!                                            ================                                         </DETAILS>! 
+<code stickytop>! >                     <success>FALLFORWARD: FALLING_FORWARD</success></code>! -------------------------------------------------------------------------------------------------- #
+
+<div class="hoverendlabel"><br>Fallforward service / nsq /</div>`
+            }else if(window.location.hash.startsWith('#/')){
+                fetch(fallforward)
+                .then( function (response) {return response.json();} )
+                .then( function (data) {
+                    if(ref != "!!!!!!!!!!!!!!!!!!!!!!FALLFORWARD:FELL_FLAT"){
+                        window.history.replaceState('','', data.get[ref])
+                        window.location.reload()
+                    }else{
+                        document.body.innerHTML = 
+                        `<title>! Fallforward destination is absent</title>
+<CODE id=errorstack>! Fallforward destination is absent
+! FALLFORWARD: FELL_FLAT
+!
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY>!
+! this.location
+!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'
+!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'
+!     .search:          \'<a draggable=true>${window.location.search}</a>\'
+!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'
+!     .host:            \'<a draggable=true>${window.location.host}</a>\'
+!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'
+!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'
+! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'
+! ref:                  \'<a draggable=true>${ref}</a>\'
+! universalpath:        \'<a draggable=true>${universalpath}</a>\'
+!
+!                                            ================                                         </DETAILS>! 
+! Error details:
+<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>!
+! -------------------------------------------------------------------------------------------------- #
+
+<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>
+
+<div class="hoverendlabel"><br>Fallforward service / nsq / <fail>Failure</fail></div>`;
+                    debug_details_expand_button.click();;
+                    };
+                } )
+                .catch(function (err) {
+                    console.log('! An error occured while fetching\n! ', fallforward, '\n! Error details:');
+                    document.body.innerHTML = 
+                        `<title>! Fallforward failed</title>
+<CODE id=errorstack>! Fallforward failed
+! FALLFORWARD: UNCAUGHT_FETCH_FAILED / FELL_FLAT
+!
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY>!
+! this.location
+!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'
+!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'
+!     .search:          \'<a draggable=true>${window.location.search}</a>\'
+!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'
+!     .host:            \'<a draggable=true>${window.location.host}</a>\'
+!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'
+!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'
+! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'
+! ref:                  \'<a draggable=true>${ref}</a>\'
+! universalpath:        \'<a draggable=true>${universalpath}</a>\'
+!
+!                                            ================                                         </DETAILS>! 
+! Error details:
+<code stickytop>! >                     <fail>Uncaught (in promise) ${err}</fail></code>!
+! ----------------------------------------------------------------------------------------------------
+! Retrying...</CODE>
+
+<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>
+
+<div class="hoverendlabel"><br>Fallforward service / nsq / <fail>Failure</fail></div>`;
+                    debug_details_expand_button.click();
+                    retryno = 0;
+                    function clearretry(){
+                        clearInterval(retryinterval)
+                        errorstack.innerHTML +='! \n! Retry cancelled.'
+                    }
+                    function subtime(e){
+                        document.querySelector('#cancelretrytext' + e).scrollIntoView({behavior:'smooth', block:'start'})
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 9}, 1000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 8}, 2000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 7}, 3000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 6;}, 4000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 5;}, 5000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 4;}, 6000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 3;}, 7000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 2;}, 8000)
+                        setTimeout(()=>{
+                        document.querySelector('#timeintervleft' + e).innerText = 1;}, 9000)
+                        setTimeout(()=>{document.querySelector('#t' + e + 'ext').innerText = ''; document.querySelector('#cancelretrytext' + e).outerHTML = ''}, 10000)
+                    }
+                    function sendretry(){
+                        retryno += 1
+                        fetch(fallforward)
+                            .then( function (response) {return response.json();} )
+                            .then( function (data) {errorstack.innerHTML += '\n!' + retryno +': Retry <success>suceeded</success>.\n! <a href="">Reloading, please wait...</a>'; setTimeout(window.location.reload, 1000)})
+                            .catch(function (err) {errorstack.innerHTML += '\n! ' + retryno + ': Retry <fail>failed</fail>.\n! Retrying<span id=t' + retryno + 'ext> in <span id=timeintervleft' + retryno + '>10</span>s</span>... <span id=cancelretrytext' + retryno + '>Click <a draggable=true onclick="clearInterval(retryinterval); errorstack.innerHTML +=\'<br>!<br>! Retry cancelled.<br>! ----------------------------------------------------------------------------------------------------<br><code stickybottommore>! Conclusion: <fail>Unresolved failure</fail>. <a draggable=true onclick=\\\'downloadlogman()\\\'>Save log</a>.<br>! -------------------------------------------------------------------------------------------------- #</code>\'">here</a> to cancel.</span>'; subtime(retryno)})
+                    }
+                    setTimeout(sendretry, 200)
+                    setTimeout(sendretry, 500)
+                    setTimeout(sendretry, 600)
+                    setTimeout(sendretry, 700)
+                    setTimeout(()=>{retryinterval = setInterval(sendretry, 10000)}, 1000)
+                    throw err;
+                } );
+            }else{
+                document.body.innerHTML = `<title>! Fallforward destination is absent</title>
+<CODE id=errorstack>! Fallforward destination is absent
+! FALLFORWARD: FELL_FLAT
+!
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY>!
+! this.location
+!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'
+!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'
+!     .search:          \'<a draggable=true>${window.location.search}</a>\'
+!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'
+!     .host:            \'<a draggable=true>${window.location.host}</a>\'
+!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'
+!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'
+! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'
+! ref:                  \'<a draggable=true>${ref}</a>\'
+! universalpath:        \'<a draggable=true>${universalpath}</a>\'
+!
+!                                            ================                                         </DETAILS>! 
+! Error details:
+<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>!
+! -------------------------------------------------------------------------------------------------- #
+
+<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>
+
+<div class="hoverendlabel"><br>Fallforward service / nsq / <fail>Failure</fail></div>`;
+                    debug_details_expand_button.click();;
+            }
+
+            
+        });
+    </script>
+</body>
+</html>
