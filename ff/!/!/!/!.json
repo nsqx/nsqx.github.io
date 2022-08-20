@@ -1,5 +1,7 @@
 {
   "get": {
-    "a0new": "yea lmao"
+    "gh": {
+      "clock": "https://nsqx.github.io/-/clock/"
+    }
   }
 }
