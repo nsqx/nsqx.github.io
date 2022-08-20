@@ -48,8 +48,7 @@ link.download = 'fallforward-' + '-' + (new Date).getDate() + '-' + (new Date).g
                 .then( function (response) {return response.json();} )
                 .then( function (data) {
                     if(ref != "!!!!!!!!!!!!!!!!!!!!!!FALLFORWARD:FELL_FLAT"){
-                        window.history.replaceState('','', data.get[ref])
-                        window.location.reload()
+                        window.location.href = data.get[ref]
                     }else{
                         document.body.innerHTML = 
                         `<title>! Fallforward destination is absent</title>
