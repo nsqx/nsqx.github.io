@@ -67,6 +67,10 @@
 
     document.addEventListener("DOMContentLoaded", e=>{
       setTimeout(timeupdate, 10)
+      
+      if (window.location.search == '?fallback'){
+        window.history.replaceState('','','/-/clock/')
+      }
 
       syncsecond(()=>{
         flexblockstyle.innerText = `.flexblock{transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);}`;
@@ -130,7 +134,6 @@
     }
     .outerflexbxcontainer{
       /*transform:skewX(-12deg);  */  
-      widht:100%;  
     }
     .verticalflex {
         flex-direction: column;
