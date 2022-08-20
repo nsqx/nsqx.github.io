@@ -6,6 +6,15 @@
     "gh.clock.digit.min": "https://nsqx.github.io/-/clock/digit/min",
     "gh.clock.digit.scroll": "https://nsqx.github.io/-/clock/digit/scroll",
     "gh.clock.word.scroll": "https://nsqx.github.io/-/clock/word/scroll/",
-    "gh.clock.word.scroll.zh-cn": "https://nsqx.github.io/-/clock/word/scroll/zh-cn"
+    "gh.clock.word.scroll.zh-cn": "https://nsqx.github.io/-/clock/word/scroll/zh-cn", 
+    
+    
+    "_.w4wQd": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  "comments": {
+    "prefix": {
+      "gh": "GitHub related",
+      "_": "Special"
+    }
   }
 }
