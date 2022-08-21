@@ -9,21 +9,21 @@
 <CODE id=errorstack><ln>! Falling forward</ln>
 <ln>! FALLFORWARD: FALLING_FORWARD</ln>
 <ln>!</ln>
-<DETAILS><ln><SUMMARY id=debug_details_expand_button stickytop>! Trace details                              ================                                        <fakea draggable=true>#</fakea></SUMMARY></ln><ln>!</ln>
+<DETAILS><SUMMARY id=debug_details_expand_button stickytop><ln>! Trace details                              ================                                        <fakea draggable=true>#</fakea></ln></SUMMARY><ln>!</ln>
 <ln>! this.location</ln>
-<ln>!     .href:            \'<a href=\'${window.location.href}\'>${window.location.href}</a>\'</ln>
+<ln>!     .href:            \'<a href='${window.location.href}'>${window.location.href}</a>\'</ln>
 <ln>!     .pathname:        \'<a href='${window.location.pathname}'>${window.location.pathname}</a>\'</ln>
 <ln>!     .search:          \'<a draggable=true>${window.location.search}</a>\'</ln>
 <ln>!     .hash:            \'<a draggable=true>${window.location.hash}</a>\'</ln>
 <ln>!     .host:            \'<a draggable=true>${window.location.host}</a>\'</ln>
 <ln>!     .origin:          \'<a draggable=true>${window.location.origin}</a>\'</ln>
 <ln>!     .protocol:        \'<a draggable=true>${window.location.protocol}</a>\'</ln>
-<ln>! fallforward:          \'<a href=\'${fallforward}\'>${fallforward}</a>\'</ln>
+<ln>! fallforward:          \'<a href='${fallforward}'>${fallforward}</a>\'</ln>
 <ln>! ref:                  \'<a draggable=true>${ref}</a>\'</ln>
 <ln>! universalpath:        \'<a draggable=true>${universalpath}</a>\'</ln>
 <ln>!</ln>
 <ln>!                                            ================                                         </ln></DETAILS><ln>!</ln>
-<ln stickytop>! >                     <success>FALLFORWARD: FALLING_FORWARD</success></ln><ln>! -------------------------------------------------------------------------------------------------- #</ln>
+<ln stickytop>! >                     <success>FALLFORWARD: FALLING_FORWARD</success></ln><ln>! -------------------------------------------------------------------------------------------------- #</ln></CODE>
 
 <div class="hoverendlabel"><br>Fallforward service / nsq / Succeeding</div>
     <script id=s>
@@ -149,8 +149,7 @@
                             _pushln(`<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>`)
                             _pushln(`!`)
                             _pushln(`! -------------------------------------------------------------------------------------------------- #`)
-
-                            _pushln(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`);
+                            _pushinl(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`, opt='style=\"margin-left:-100vw;\"')
                             debug_details_expand_button.click();
                         }
 
@@ -183,8 +182,7 @@
                         _pushln(`<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>`)
                         _pushln(`!`)
                         _pushln(`! -------------------------------------------------------------------------------------------------- #`)
-
-                        _pushln(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`);
+                        _pushinl(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`, opt='style=\"margin-left:-100vw;\"')
                         debug_details_expand_button.click();;
                     };
                 } )
@@ -288,8 +286,8 @@
                 _pushln(`<code stickytop>! >                     <fail>FALLFORWARD: FELL_FLAT</fail></code>`)
                 _pushln(`!`)
                 _pushln(`! -------------------------------------------------------------------------------------------------- #`)
+                _pushinl(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`, opt='style=\"margin-left:-100vw;\"')
 
-                _pushln(`<code style=text-align:right;background:transparent;width:fit-content;position:fixed;right:20vw;bottom:0px><a draggable=true onclick="downloadlogman()" tabindex=1>Save log</a></code>`);
                 debug_details_expand_button.click();;
             }
 
