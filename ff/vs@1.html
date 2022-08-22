@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html><!---?fallforward by nsq--->
+<head>
+    <style>* {color-scheme:light;background:white;}a,fakea{color:#0969da;text-decoration:none;cursor:pointer;user-select:text;}a:hover,fakea:hover{text-decoration:underline solid 1px;}body,html{display:flex;font-size:13px;justify-content:center;}html{zoom:1;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";overflow:auto;height:100vh;width:100vw}html{overflow:auto;overflow-x:hidden;height:100vh;width:100vw}code{padding-top:32px;padding-bottom:42px;white-space:pre-wrap;font-family:Consolas,Courier,'Courier New',monospace;flex-direction:column;width:80%;height:fit-content;max-width:1200px;display:block;overflow:visible}summary{cursor:pointer;}details>summary:first-of-type{list-style-position:outside!important;position:sticky;top:0px;}/*ln{list-style-type:decimal-leading-zero;display:list-item;counter-increment:list-item;content:counter(list-item);}*/.hoverendlabel{position:fixed;text-align:center;bottom:0px;left:0px;right:0px;z-index:12370192308120938;height:42px;background:linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, .8) 50%, rgba(255,255,255,0) 100%);user-select:none;pointer-events:none;font-weight:400;}.hoverendlabel :not(br){font-size:14px}div{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";}fail{color:#cf222e; display:inline;}details{margin:0px;padding:0px;}::selection{ background: rgba(29, 153, 255, 0.511) !important;}::-moz-selection { background: rgba(29, 153, 255, 0.511) !important; }success{color:#1a7f37; display:inline;}[stickytop]{position:sticky;top:0px;padding:0px;}body{flex-direction:column; justify-content:start; align-items: center;max-width:1200px;width:100%}[stickytopbottom]{position:sticky;top:0px;bottom:0px;}[stickybottommore]{position:sticky;bottom:42px;padding:0px;}ln{width:100%;display:inline-block;counter-increment: linenumbercount 1;font-size:13px;padding-left:10px;min-height:15px;word-wrap: break-word;}ln:hover, ln:hover *{background:#f3f9ff}ln::before{content:counter(linenumbercount);margin-left:-52px;margin-right:52px;position:Absolute;opacity:.36;cursor:row-resize;}ln:hover::before{opacity:1}/*ln:active{cursor:col-resize}*/br[a]{visibility:hidden}.spinthisthing{animation:spin 1s linear infinite}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg);}}
+    @media (prefers-color-scheme: dark){* {color-scheme:dark;background:#161d27;color:#c9d1d9;}a,fakea{color:#67a8f1;}.hoverendlabel{background:linear-gradient(0deg, #161d27 0%, rgba(22, 29, 39, .8) 50%, rgba(255,255,255,0) 100%);}fail{color:#f5645c;}::selection{ background: rgba(29, 153, 255, 0.511) !important;}::-moz-selection { background: rgba(29, 153, 255, 0.511) !important; }success{color:#3fb950;}ln:hover, ln:hover *{background:#1f2e42;}}</style>
+</head>
+<body dropzone="move">
+<script>
+    function _init(replace = true, title = '! Fallforward', footnote = 'Fallforward service / nsq /'){
+        if (replace){
+            document.body.innerHTML = `<title>${title}</title>`
+            var code_Block_elem_sldpsldp = document.createElement('code')
+            code_Block_elem_sldpsldp.id = "errorstack"
+            document.body.appendChild(code_Block_elem_sldpsldp)
+            var divfootnote_Block_elem_sldpsldp = document.createElement('div')
+            divfootnote_Block_elem_sldpsldp.classList.add("hoverendlabel")
+            divfootnote_Block_elem_sldpsldp.innerHTML = "<br>" + footnote
+            document.body.appendChild(divfootnote_Block_elem_sldpsldp)
+        }else{
+            document.body.innerHTML += `<title>${title}</title>`
+            var code_Block_elem_sldpsldp = document.createElement('code')
+            code_Block_elem_sldpsldp.id = "errorstack"
+            document.body.appendChild(code_Block_elem_sldpsldp)
+            var divfootnote_Block_elem_sldpsldp = document.createElement('div')
+            divfootnote_Block_elem_sldpsldp.classList.add("hoverendlabel")
+            divfootnote_Block_elem_sldpsldp.innerHTML = "<br>" + footnote
+            document.body.appendChild(divfootnote_Block_elem_sldpsldp)
+        }
+    }
+
+    function _pushln(line, opt = ''){
+        document.querySelector('#errorstack').innerHTML += '<ln ' + opt + '>' + line + '</ln><br a>'
+    }
+
+    function _pushblk(block, opt = ''){
+        document.querySelector('#errorstack').innerHTML += '<ln ' + opt + '>' + block + '</ln><br a>'
+    }
+
+    function _pushlns(lines){
+        try {
+            for (const line of lines){
+                document.querySelector('#errorstack').innerHTML += '<ln>' + line + '</ln><br a>'
+            }
+        }catch(err){
+            document.querySelector('#errorstack').innerHTML += '<ln>! <fail>Internal error</fail>:</ln><br a>'
+            document.querySelector('#errorstack').innerHTML += '<ln>! >                     <fail>(Uncaught) ' + err + '</fail></ln>'
+        }
+    }
+
+    function _pushinl(line, opt = ''){
+        document.querySelector('#errorstack').innerHTML += '<ln ' + opt + '>' + line + '</ln>'
+    }
+
+    function _autofmln(linesblock){
+        linesblock = linesblock.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n", "</ln><br a><ln>")
+        document.querySelector('#errorstack').innerHTML += '<ln>' + linesblock + '</ln>'
+    }
+
+    function _autofmlnc(linesblock){
+        linesblock = linesblock.replaceAll("\n", "</ln><br a><ln>")
+        document.querySelector('#errorstack').innerHTML += '<ln>' + linesblock + '</ln>'
+    }
+
+    function _push_from_worker(workerOutput, replace = fales){
+        replace ? document.querySelector('#errorstack').innerHTML = workerOutput : document.querySelector('#errorstack').innerHTML += workerOutput 
+    }
+
+    function _cfm(line){
+        return line.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+    }
+
+    function _pushbr(amt = 1){
+        for (ci = 0; ci < amt; ci++){
+            document.querySelector('#errorstack').innerHTML += '<ln><br a></ln>'
+        }
+    }
+
+    function _clear(leavealine = false){
+        document.querySelector('#errorstack').innerHTML = leavealine ? '<ln></ln>': ''
+    }
+
+    /*function _start_load(evt, custom_action = (function(){}), chunk_size = 1000 * 1024){
+        evt.preventDefault();
+        custom_action();
+        const reader = new FileReader();
+        __slice(0, chunk_size, evt.target.files[0])
+    }
+
+    function __slice(start, chunk_size, file){
+        next_chunk = start + chunk_size + 1
+        blob = file.slice(start, next_chunk)
+    }*/
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        _init(true, 'View source', 'File service / nsq')
+        _clear()
+        if (window.location.search == ''){
+            _pushln('<input type=file id="fileinputinputdrop" style="height:100vh;display:block;width:100vw;position:absolute;left:0px;top:0px;opacity:0;cursor:pointer" title="Choose file">')
+            _pushln('<div style=text-align:center;height:80vh;display:flex;justify-content:center;flex-direction:column><h1 style="font-weight:600">Click or drop file anywhere to view source</h1><h3 style="font-weight:600">Try to keep file sizes less than 1mb</h3></div>')
+            document.querySelector('#fileinputinputdrop').addEventListener("change",(e)=>{
+                _clear()
+                _pushln('<input type=button style="height:100vh;display:block;width:100vw;position:absolute;left:0px;top:0px;opacity:0;" title="Please wait...">')
+                _pushln('<div style=text-align:center;height:80vh;display:flex;justify-content:center;flex-direction:column;background:transparent><svg height="16"  class=spinthisthing style="border:0px;padding:0px;margin:0px;background:transparent" viewBox="0 0 32 32" ="16"><path d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4" fill="#959da5"></path><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z" fill="#ffffff"></path></svg><h1 style="font-weight:600">Please wait...</h1></div>')
+                document.querySelector('title').innerHTML = e.target.files[0].name + ' | View source'
+                const fileReaderWorker = new Worker('data:@file/javascript;base64,ZnVuY3Rpb24gcHJvY2Vzc19maWxlKGxpbmVibG9jayl7DQogICAgbGluZWJsb2NrID0gbGluZWJsb2NrLnJlcGxhY2VBbGwoIiYiLCImYW1wOyIpLnJlcGxhY2VBbGwoIjwiLCImbHQ7IikucmVwbGFjZUFsbCgiXG4iLCAiPC9sbj48YnIgYT48bG4+IikNCiAgICByZXR1cm4gYDxsbj4ke2xpbmVibG9ja308L2xuPmANCn0NCg0Kb25tZXNzYWdlID0gKGZ1bmN0aW9uKGUpew0KICAgIGNvbnN0IHJlYWRlciA9IG5ldyBGaWxlUmVhZGVyKCk7DQogICAgcmVhZGVyLmFkZEV2ZW50TGlzdGVuZXIoJ2xvYWQnLCAoaW5uZXJFdnQpID0+IHsNCiAgICAgICAgcG9zdE1lc3NhZ2UocHJvY2Vzc19maWxlKGlubmVyRXZ0LnRhcmdldC5yZXN1bHQpKQ0KICAgIH0pOw0KICAgIHJlYWRlci5yZWFkQXNCaW5hcnlTdHJpbmcoZS5kYXRhKTsNCn0p')
+                fileReaderWorker.postMessage(e.target.files[0])
+                fileReaderWorker.addEventListener("message", (e)=>{
+                    console.log('Recieved data from dedicated worker\nUpdating DOM now...')
+                    fileReaderWorker.terminate()
+                    _push_from_worker(e.data, true)
+                })
+            })
+        }else{
+            _clear()
+            _pushln('<input type=button style="height:100vh;display:block;width:100vw;position:absolute;left:0px;top:0px;opacity:0;" title="Please wait...">')
+            _pushln('<div style=text-align:center;height:80vh;display:flex;justify-content:center;flex-direction:column;background:transparent><svg height="16"  class=spinthisthing style="border:0px;padding:0px;margin:0px;background:transparent" viewBox="0 0 32 32" ="16"><path d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4" fill="#959da5"></path><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z" fill="#ffffff"></path></svg><h1 style="font-weight:600">Please wait...</h1></div>')
+            document.querySelector('title').innerHTML = window.location.search.slice(1) + ' | View source'
+            const processWorker = new Worker('data:@file/javascript;base64,ZnVuY3Rpb24gcHJvY2Vzc19maWxlKGxpbmVibG9jayl7DQogICAgbGluZWJsb2NrID0gbGluZWJsb2NrLnJlcGxhY2VBbGwoIiYiLCImYW1wOyIpLnJlcGxhY2VBbGwoIjwiLCImbHQ7IikucmVwbGFjZUFsbCgiXG4iLCAiPC9sbj48YnIgYT48bG4+IikNCiAgICByZXR1cm4gYDxsbj4ke2xpbmVibG9ja308L2xuPmANCn0NCg0Kb25tZXNzYWdlID0gKGZ1bmN0aW9uKGUpew0KICAgIHBvc3RNZXNzYWdlKHByb2Nlc3NfZmlsZShpbm5lckV2dC50YXJnZXQucmVzdWx0KSkNCn0p')
+            fetch(window.location.search.slice(1)).then(response => {processWorker.postMessage(response)}).catch(err => {window.location.search=''})
+            processWorker.addEventListener("message", (e)=>{
+                console.log('Recieved data from dedicated worker\nUpdating DOM now...')
+                processWorker.terminate()
+                _push_from_worker(e.data, true)
+            })
+        }
+    })
+
+    document.addEventListener("dragover", (event) => {
+        event.preventDefault();
+    });
+
+    if (window.location.search == ''){
+        document.addEventListener('drop', (e)=>{
+            if (e.dataTransfer.files.length == 1 && e.dataTransfer.types && (e.dataTransfer.types.indexOf ? e.dataTransfer.types.indexOf('Files') != -1 : e.dataTransfer.types.contains('Files'))){
+            e.stopPropagation()
+            e.stopImmediatePropagation()
+            e.preventDefault()
+            _clear()
+            _pushln('<input type=button style="height:100vh;display:block;width:100vw;position:absolute;left:0px;top:0px;opacity:0;" title="Please wait...">')
+            _pushln('<div style=text-align:center;height:80vh;display:flex;justify-content:center;flex-direction:column;background:transparent><svg height="16"  class=spinthisthing style="border:0px;padding:0px;margin:0px;background:transparent" viewBox="0 0 32 32" ="16"><path d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4" fill="#959da5"></path><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z" fill="#ffffff"></path></svg><h1 style="font-weight:600">Please wait...</h1></div>')
+            document.querySelector('title').innerHTML = e.dataTransfer.files[0].name + ' | View source'
+            const fileReaderWorker = new Worker('data:@file/javascript;base64,ZnVuY3Rpb24gcHJvY2Vzc19maWxlKGxpbmVibG9jayl7DQogICAgbGluZWJsb2NrID0gbGluZWJsb2NrLnJlcGxhY2VBbGwoIiYiLCImYW1wOyIpLnJlcGxhY2VBbGwoIjwiLCImbHQ7IikucmVwbGFjZUFsbCgiXG4iLCAiPC9sbj48YnIgYT48bG4+IikNCiAgICByZXR1cm4gYDxsbj4ke2xpbmVibG9ja308L2xuPmANCn0NCg0Kb25tZXNzYWdlID0gKGZ1bmN0aW9uKGUpew0KICAgIGNvbnN0IHJlYWRlciA9IG5ldyBGaWxlUmVhZGVyKCk7DQogICAgcmVhZGVyLmFkZEV2ZW50TGlzdGVuZXIoJ2xvYWQnLCAoaW5uZXJFdnQpID0+IHsNCiAgICAgICAgcG9zdE1lc3NhZ2UocHJvY2Vzc19maWxlKGlubmVyRXZ0LnRhcmdldC5yZXN1bHQpKQ0KICAgIH0pOw0KICAgIHJlYWRlci5yZWFkQXNCaW5hcnlTdHJpbmcoZS5kYXRhKTsNCn0p')
+            fileReaderWorker.postMessage(e.dataTransfer.files[0])
+            fileReaderWorker.addEventListener("message", (e)=>{
+                console.log('Recieved data from dedicated worker\nUpdating DOM now...')
+                fileReaderWorker.terminate()
+                _push_from_worker(e.data, true)
+            })
+            }
+        })
+    }
+</script>
+</body>
+</html>
