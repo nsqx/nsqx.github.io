@@ -123,7 +123,7 @@
                 processWorker.terminate()
                 _push_from_worker(e.data, true)
             })
-            fetch(window.location.search.slice(1)).then(function (response) {processWorker.postMessage(response); return;}).catch(function(err) {window.location.search=''})
+            fetch(window.location.search.slice(1)).then(function (response) {processWorker.postMessage(response); return;})//.catch(function(err) {window.location.search=''})
         }
     })
 
