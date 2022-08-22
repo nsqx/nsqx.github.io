@@ -118,7 +118,7 @@
             _pushln('<div style=text-align:center;height:80vh;display:flex;justify-content:center;flex-direction:column;background:transparent><svg height="16"  class=spinthisthing style="border:0px;padding:0px;margin:0px;background:transparent" viewBox="0 0 32 32" ="16"><path d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4" fill="#959da5"></path><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z" fill="#ffffff"></path></svg><h1 style="font-weight:600">Please wait...</h1></div>')
             document.querySelector('title').innerHTML = window.location.search.slice(1) + ' | View source'
             const processWorker = new Worker('data:@file/javascript;base64,ZnVuY3Rpb24gcHJvY2Vzc19maWxlKGxpbmVibG9jayl7DQogICAgbGluZWJsb2NrID0gbGluZWJsb2NrLnJlcGxhY2VBbGwoIiYiLCImYW1wOyIpLnJlcGxhY2VBbGwoIjwiLCImbHQ7IikucmVwbGFjZUFsbCgiXG4iLCAiPC9sbj48YnIgYT48bG4+IikNCiAgICByZXR1cm4gYDxsbj4ke2xpbmVibG9ja308L2xuPmANCn0NCg0Kb25tZXNzYWdlID0gKGZ1bmN0aW9uKGUpew0KICAgIHBvc3RNZXNzYWdlKHByb2Nlc3NfZmlsZShpbm5lckV2dC50YXJnZXQucmVzdWx0KSkNCn0p')
-            fetch(window.location.search.slice(1)).then(response => {processWorker.postMessage(response.clone())}).catch(err => {window.location.search=''})
+            fetch(window.location.search.slice(1)).then(response => {processWorker.postMessage(response.clone())})//.catch(err => {window.location.search=''})
             processWorker.addEventListener("message", (e)=>{
                 console.log('Recieved data from dedicated worker\nUpdating DOM now...')
                 processWorker.terminate()
