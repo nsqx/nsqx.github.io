@@ -264,7 +264,7 @@
         return document.querySelector(query);
       }
 
-      function typewriter(target, wordsArray, intervalMS, typingDelayMS = 100, eraseDelayMS = 50, dynamicUnderline = false, repeat = true, onendfunc = (function(){})){
+      function typewriter(target, wordsArray, intervalMS, typingDelayMS = 100, eraseDelayMS = 50, dynamicUnderline = false){
         var wordindex = 0;
         var charindex = 0;
         var charArray = [];
@@ -278,7 +278,7 @@
         }
 
         function updateCharArray() {
-          //charArray = [...wordsArray[wordindex]];
+          charArray = [...wordsArray[wordindex]];
           charArray = wordsArray[wordindex];
         }
 
@@ -287,12 +287,8 @@
             wordindex += 1;
             updateCharArray();
           } else {
-            if (repeat){
-              wordindex = 0;
+            wordindex = 0;
             updateCharArray();
-            } else {
-              onendfunc();
-            }
           }
         }
 
@@ -359,21 +355,21 @@
         searchString = window.location.search.slice(1).split("&");
 
       document.addEventListener("DOMContentLoaded", (function (evt) {
-        typewriter(qsr("#tyypsic"), ["Walter Whiter", "Walt Jéssè Blackman", "f*ckable", "the mascot of Wednesday", "the mascot of every day (except Saul Saturday and Saul Sunday)", "ඞ ⇽ sussy amognus", "actually the imposter", "actually your mom 😂", "🗿🗿🗿"], 2000, 100, 50, true, true, null);
+        typewriter(qsr("#tyypsic"), ["Walter Whiter", "Walt Jéssè Blackman", "f*ckable", "the mascot of Wednesday", "the mascot of every day (except Saul Saturday and Saul Sunday)", "ඞ ⇽ sussy amognus", "actually the imposter", "actually your mom 😂", "🗿🗿🗿"], 2000, 100, 50, true);
 
-        if ((new Date).getDay == 0) {
+        if ((new Date).getDay() == 0) {
             qsr("day").innerText = "Saul Sunday"
-        }else if ((new Date).getDay == 1) {
+        }else if ((new Date).getDay() == 1) {
             qsr("day").innerText = "Walter Monday"
-        }else if ((new Date).getDay == 2) {
+        }else if ((new Date).getDay() == 2) {
             qsr("day").innerText = "Walter Tuesday"
-        }else if ((new Date).getDay == 3) {
+        }else if ((new Date).getDay() == 3) {
             qsr("day").innerText = "Walter White Wednesday"
-        }else if ((new Date).getDay == 4) {
+        }else if ((new Date).getDay() == 4) {
             qsr("day").innerText = "Walter Thursday"
-        }else if ((new Date).getDay == 5) {
+        }else if ((new Date).getDay() == 5) {
             qsr("day").innerText = "Walter Friday"
-        }else if ((new Date).getDay == 6) {
+        }else if ((new Date).getDay() == 6) {
             qsr("day").innerText = "Saul Saturday"
         }
 
@@ -392,7 +388,7 @@
     <div w10f7>
     <main>
         <div csmpTopBar>
-          <h3 h1mt0 h1mb0><day></day>Walter Wednesday</day><sup rfBPROP>&trade;</sup></h3> <hr wideclumo> <a h4mock uif id="mosqcontroller_1" href="">&roarr; walt</a>
+          <h3 h1mt0 h1mb0><day>Walter Wednesday</day><sup rfBPROP>&trade;</sup></h3> <hr wideclumo> <a h4mock uif id="mosqcontroller_1" href="">&roarr; walt</a>
         </div>
   
         <div sfpadPROP3></div>
