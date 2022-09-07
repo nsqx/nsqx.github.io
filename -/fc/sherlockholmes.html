@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en-us" style="filter:grayscale(1) opacity(.5) sepia(.3) hue-rotate(20deg);overflow:clip;overflow-x:hidden;">
+<head>
+  <title>Comparing the Original Works of &ldquo;Sherlock Holmes&rdquo; with Modern Adaptations</title>
+  <style>
+    @font-face {
+    font-family: -lserif;
+    src: url(Lora.woff2);
+}
+
+@font-face {
+    font-family: -lserif-b;
+    src: url(LoraBold.woff2);
+}
+
+@font-face {
+    font-family: -lserif-b-i;
+    src: url(LoraBold.woff2);
+}
+
+@font-face {
+    font-family: -lserif-b-i;
+    src: url(LoraBoldItalic.woff2);
+}
+
+@font-face {
+    font-family: -lserif-i;
+    src: url(LoraItalic.woff2);
+}
+
+@font-face {
+    font-family: -lsansserif;
+    src: url(LeagueGothic.woff2);
+}
+
+@font-face {
+    font-family: -lsansserif-i;
+    src: url(LeagueGothicItalic.woff2);
+}
+
+
+::selection{ background: rgba(29, 153, 255, 0.511) !important;}
+::-moz-selection { background: rgba(29, 153, 255, 0.511) !important; }
+
+
+.disambig_inner, body, html {
+    background-color: #f7f7f7;
+}
+
+html {
+    padding:0px;
+    width:100%;
+    touch-action: pan-x pan-y;
+    transition:All .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition:all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height:100%;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    transform-origin: top;
+    margin-right:0px;
+}
+
+* {
+    direction: ltr;
+}
+
+
+.page {
+    max-width: 21cm;
+    /*max-height: 29.7cm;*/
+    min-width: 21cm;
+    min-height: 29.7cm;
+    padding:1cm;
+    box-sizing: border-box;
+    background-color: rgb(230, 226, 200);
+    color: rgb(102, 102, 102);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:clip;
+    scrollbar-width: none;
+    text-rendering: geometricPrecision;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 2px 4px 12px rgba(10, 10, 10, 0.3);
+    transform-origin: top;
+    /*margin:.1cm;*/
+    flex-shrink:0;
+    content-visibility: auto;
+}
+
+.page3fcolouter {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width:100%;
+    overflow-x: visible;
+    overflow:auto;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    flex:1;
+    max-width:100%;
+    min-width:100%;
+    min-height:100%;
+    max-height:100%;
+    box-sizing:border-box;
+    transition: all .5s /*cubic-bezier(0.165, 0.84, 0.44, 1)*/ cubic-bezier(0.165, 0.84, 0.44, 1.009);
+    content-visibility: auto;
+}
+
+listm-::before {
+    content: counter(custoomListThingerCuuuuuoomZaA____bezl) ". ";
+    font-weight:600;
+}
+
+listm- {
+    counter-increment: custoomListThingerCuuuuuoomZaA____bezl;
+}
+
+listm-reset {
+    counter-reset: counter(custoomListThingerCuuuuuoomZaA____bezl);
+}
+
+/*.page:not(:last-child) {
+    border-bottom: 1px solid rgb(102, 102, 102);
+}*/
+
+.pagecol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: top;
+    zoom:1.2;
+}
+
+.divrow {
+    display:Flex;
+    flex-direction: row;
+}
+
+.divcol {
+    display:flex;
+    flex-direction: column;
+}
+
+.page::-webkit-scrollbar, .page ::-webkit-scrollbar {
+    display:none;
+}
+
+/*.page::after{
+    content: "";
+    bottom:0;
+    margin-bottom:-1cm;
+    background:transparent;
+    background:linear-gradient(0deg, rgb(230, 226, 200) 0%, rgba(230, 226, 200, .5) 10%, rgba(230, 226, 200,.1) 60%, rgba(230, 226, 200,0) 100%);
+    width:100%;
+    height:1cm;
+    position:sticky;
+    bottom:0;
+    z-index:9273649723;
+}*/
+
+.h1title {
+    font-family: -lsansserif, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 79.8895px;
+    line-height: 70px;
+    font-style:normal;
+    font-weight: 200;
+    letter-spacing: -2px;
+    margin-top:    20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.h2subtitle {
+    font-family: -lserif, Times, Georgia, "Times New Roman", serif;
+    font-size:19.2304px;
+    margin-top:16px;
+    margin-bottom:16px;
+    text-align: center;
+    font-weight: 200;
+}
+
+.h3subtitle {
+    font-family: -lserif, Times, Georgia, "Times New Roman", serif;
+    font-size:17.2304px;
+    margin-top:16px;
+    margin-bottom:16px;
+    text-align: center;
+    font-weight: 200;
+}
+
+.serif {
+    font-family: -lserif, Times, Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+.serif i, p i, .mockp i {
+    font-family: -lserif-i, Times, Georgia, "Times New Roman", serif;
+}
+
+.serif b, p b, .mockp b {
+    font-family: -lserif-b, Times, Georgia, "Times New Roman", serif;
+}
+
+.sansserif {
+    font-family: -lsansserif, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.sansserif i {
+    font-family: -lsansserif-i, Helvetica, Arial, sans-serif;
+}
+
+.sansserif b {
+    font-family: -lsansserif-b, Helvetica, Arial, sans-serif;
+}
+
+hr.hr {
+    border: none;
+    width: 100%;
+    height: 0px;
+    border-bottom: 3px solid rgb(102, 102, 102);
+}
+
+hr.hr2 {
+    border: none;
+    width: 100%;
+    height: 0px;
+    border-bottom: 2px solid rgb(102, 102, 102);
+}
+
+hr.hrv {
+    border: none;
+    width: 0px;
+    border-right: 3px solid rgb(102, 102, 102);
+}
+
+hr.hrv2 {
+    border: none;
+    width: 0px;
+    border-right: 2px solid rgb(102, 102, 102);
+}
+
+.hrvpad32 {
+    margin-left:32px;
+    margin-right:32px;
+}
+
+.w100 {
+    width:100%;
+}
+
+.mglr32{
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.mg32 {
+    margin: 16px;
+}
+
+.h100 {
+    height: 100%;
+}
+
+img {
+    user-select: none;
+}
+
+.greyimg {
+    filter: grayscale(1);
+}
+
+.sepiaimg {
+    filter: sepia(.3);
+}
+
+div.toc_inner {
+    background-color: rgb(243,243,232);
+    height:fit-content;
+    box-sizing: border-box;
+    padding:16px;
+}
+
+div.toc_outer {
+    height:fit-content;
+    box-sizing: border-box;
+    position:sticky;
+    top:16px;
+    bottom:16px;
+    max-width:169px;
+    word-wrap: break-word;
+    overflow:visible;
+    scrollbar-width:none;
+    display: block;
+}
+
+:focus-visible {
+    outline: 2px solid;
+}
+
+.hovertoc {
+    padding:16px;
+    height:fit-content;
+    box-sizing: border-box;
+    position:sticky;
+    top:16px;
+    bottom:16px;
+    margin-left:-200px;
+    margin-right:0px;
+    transition:all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    user-select:none;
+    opacity:0;
+    pointer-events:none;
+    max-width:200px;
+}
+
+.hovertoc:focus, .hovertoc:focus-within {
+    opacity:1 !important;
+    pointer-events: all !important;
+}
+
+.subheading {
+    font-family: -lsansserif, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 35.7659px;
+    line-height: 34px;
+    font-style:normal;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-top:    20px;
+    margin-bottom: 20px;
+}
+
+.centersubheading {
+    font-family: -lsansserif, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 32.7659px;
+    line-height: 34px;
+    font-style:normal;
+    font-weight: 200;
+    letter-spacing: 2px;
+    display: block;
+    margin-top:    20px;
+    margin-bottom: 20px;
+    margin-left:-1px;
+    margin-right:-1px;
+    text-align: center;
+}
+
+.specialopunderline {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+
+.specialopunderline:hover {
+    text-decoration: none;
+    border-bottom: 2px solid;
+    margin-bottom: 19px;
+}
+
+.topstick {
+    position: sticky;
+    top: 0px;
+}
+
+.bgtopgradient {
+    background:linear-gradient(0deg, rgb(230, 226, 200, 0) 0%, rgba(230, 226, 200, .1) 10%, rgba(230, 226, 200, .5) 60%, rgba(230, 226, 200) 100%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-bottom: 1px solid;
+}
+
+.comparisoncard {
+    background-color: rgb(243,243,232);
+    padding:16px;
+}
+
+.comparisoncardpad {
+    background-color: rgb(243,243,232);
+    padding:16px;
+    margin:16px;
+    margin-top:0px;
+}
+
+a {
+    color: inherit;
+    text-decoration: solid underline 1px;
+    cursor:pointer;
+    text-underline-offset: 25%;
+    line-height: 1.5;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+p , .mockp {
+    font-family: -lserif, Times, Georgia, "Times New Roman", serif;
+    font-size: 16.7px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.\:justify {
+    text-align: justify;
+}
+
+p *, .mockp * {
+    font-family: -lserif, Times, Georgia, "Times New Roman", serif;
+}
+
+.mockp {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.indent4 {
+    text-indent: 3rem;
+}
+
+.indent4r * {
+    text-indent: initial;
+}
+
+.da_generateimg, .da_generateimg * {
+    font-family: -lserif-i, Times, Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size:13px;
+    user-select: none;
+}
+
+.imgflright {
+    float: right;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.imgflleft {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.disambig {
+    position: fixed;
+    display: flex;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(10, 10, 10, 0.2);
+    transition: all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index:7864572936459;
+}
+
+.disambig_inner {
+    padding:1cm;
+    box-sizing: border-box;
+    color: rgb(102, 102, 102);
+    display:flex;
+    flex-direction: column;
+    overflow-y:auto;
+    scrollbar-width: none;
+    text-rendering: geometricPrecision;
+    box-shadow: 2px 4px 12px rgba(10, 10, 10, 0.3);
+    transform-origin: top;
+    margin:.1cm;
+    max-width:480px !important;
+    max-height:540px !important;
+    border-radius:6px;
+    background-clip:border-box;
+    content-visibility: auto;
+    transition: all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.disambig_inner::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+}
+
+.disambig_inner::-webkit-scrollbar-thumb {
+    border-radius:6px;
+    border: 2px solid transparent;
+    box-sizing: content-box;
+    background-clip: content-box !important;
+    background:rgba(0,0,0,.2);
+    margin:3px;
+}
+
+.disambig_inner:not(:hover)::-webkit-scrollbar-thumb {
+    background:rgba(0,0,0,.1);
+}
+
+.disambig_inner::-webkit-scrollbar-thumb:hover {
+    background:rgba(0,0,0,.3);
+}
+
+.disambig_inner::-webkit-scrollbar-thumb:active {
+    background:rgba(0,0,0,.5);
+}
+
+.externalscrollcontroller {
+    position:fixed;
+    height:100vh;
+    width:fit-content;
+    top:0;
+    right:0;
+    bottom:0;
+    overflow-y:scroll;
+    z-index:78645729364598;
+    box-shadow: -4px 0px 9px rgba(0,0,0,.1);
+    opacity:0;
+    transform-origin: right;
+    pointer-events: none;
+}
+
+.novis {
+    visibility:hidden
+}
+
+@media (prefers-color-scheme: dark){
+    .disambig_inner, body, html {
+        color-scheme: dark;
+        background-color: #3d3d3d;
+    }
+    .disambig_inner {
+        color: #f7f7f7;
+    }
+    .disambig_inner::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+        background: transparent;
+    }
+
+    .disambig_inner::-webkit-scrollbar-thumb {
+        border-radius:6px;
+        border: 2px solid transparent;
+        box-sizing: content-box;
+        background-clip: content-box !important;
+        background:rgba(128,128,128,.3);
+        margin:3px;
+    }
+
+    .disambig_inner:not(:hover)::-webkit-scrollbar-thumb {
+        background:rgba(128,128,128,.2);
+    }
+
+    .disambig_inner::-webkit-scrollbar-thumb:hover{
+        background:rgba(128,128,128,.4);
+    }
+
+    .disambig_inner::-webkit-scrollbar-thumb:active{
+        background:rgba(128,128,128,.5);
+    }
+}
+
+@media print {
+    .page {
+        width: 100% !important;
+        min-width:0px;
+        width:100%;
+        zoom:none;
+        flex-shrink: 1;
+        flex-grow: 1;
+        margin:0px !important;
+    }
+    html, body {
+        padding:0px;
+    }
+    .page3fcolouter {
+        position:static;
+        overflow:visible;
+        max-height:fit-content;
+        zoom:none;
+        flex-wrap: wrap;
+        flex-shrink: 1;
+        flex-grow: 1;
+        padding:0px;
+    }
+    .pagecol {
+        max-width:100%;
+        zoom:none;
+        overflow:hidden;
+        flex-shrink: 1;
+        flex-grow: 1;
+        margin:0px;
+    }
+    .hovertoc {
+        display:none;
+    }
+}
+
+
+
+
+
+.hover\:padding-bottom\:0px:hover {
+    padding-bottom:0px;
+}
+
+.\:not\:hover\:padding-bottom\:1px:not(:hover) {
+    padding-bottom:1px;
+}
+
+[aft]::after {
+    content: attr(aft);
+}
+  </style>
+  <script lang="application/javascript">
+    function qsr(query){
+    return document.querySelector(query);
+}
+
+function qsrAll(query){
+    return document.querySelectorAll(query);
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", (function (evt) {
+    function construct(){
+
+        f = {
+            init: function() {
+                this.zoom.init();
+                this.content.initDisambig();
+
+                f.html.style.filter = "none";
+                //f.html.style.overflowY = "auto";
+                qsr("#loading_plate").style.opacity = "0";
+
+                if(window.location.hash == "#edit"){
+                    document.designMode = "on";
+                }
+
+                overflowelem = document;
+                overflowelem = qsr(".page3fcolouter");
+
+                f.scroll.initExternalScrollbar();
+
+                f.content.updateOverflowElem();
+            },
+
+            /* page elements */
+            html: qsr("html"),
+            pagecol: qsr(".pagecol"),
+            /* end declaration block */
+
+
+            /* page functions */
+            insertAfter: function(referenceNode, newNode) {
+                referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+                return newNode;
+            },
+            destroyN: function(node) {
+                node.outerHTML = "";
+            },
+            preventDefault: function(e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+            },
+            /* end declaration block */
+
+            zoom: {
+                init: function() {
+                    var zoomcontroller = document.createElement("style");
+                    zoomcontroller.innerHTML = ".pagecol {transform: scale(" + this.amt + ")}" + f.content.pagecolAltStyles;
+                    zoomcontroller.id = "page_zoomcontroller-addendum";
+                    zoomcontroller = document.head.appendChild(zoomcontroller);
+                },
+                amt: 1,
+                max: 3,
+                softMax: 2.75,
+                min: 1,
+                softMin: .9,
+                cliX: 0,
+                cliY: 0,
+                update: function(delta) {
+                    if (this.amt + delta <= this.max && this.amt + delta >= this.min){
+                        this.amt += delta;
+                        qsr("#page_zoomcontroller-addendum").innerHTML = ".pagecol {transform: scale(" + this.amt + ")}" + f.content.pagecolAltStyles;
+                    }
+                },
+                updateScale: function(delta, evt) {
+                    if (this.amt + delta <= this.max /* rebound softmax */ && this.amt + delta >= this.min){
+                        this.amt += delta;
+                        qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + this.amt + "); transform-origin:" + evt.clientX + "px " + evt.clientY + "px}" + f.content.pagecolAltStyles;
+                    } else if (this.amt + delta >= this.max){
+                        //setTimeout(()=>{
+                            this.amt = this.max;
+                            qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + this.amt + "); transform-origin:" + evt.clientX + "px " + evt.clientY + "px}" + f.content.pagecolAltStyles;
+                        //},500)
+                    } else {
+                        this.amt = this.min;
+                        qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + this.amt + "); transform-origin:" + evt.clientX + "px " + evt.clientY + "px}" + f.content.pagecolAltStyles;
+                    }
+                    this.cliX = evt.clientX;
+                    this.cliY = evt.clientY;
+                },
+                zoom_evt_controller: function(e) {
+                    if (e.ctrlKey){                                           // action is pinchzoom
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        f.scroll.pushScrollValues(f.html.scrollLeft, f.html.scrollTop);
+                        if (qsr(".pagecol").getBoundingClientRect().width*f.zoom.amt > window.innerWidth - 64){
+                            //f.html.style.overflowX = "scroll";
+                            f.content.pagecolAltStyles = ".page3fcolouter {justify-content:left;}";
+                        }else{
+                            //f.html.style.overflowX = "hidden";
+                            f.content.pagecolAltStyles = ".page3fcolouter {justify-content:center;}";
+                        }
+                        f.zoom.update(-e.deltaY / 42);
+                        f.html.scrollTo(f.scroll.scrollValues[0], f.scroll.scrollValues[1] - e.offsetY);
+                    }
+                },
+                zoom_evt_controller2: function(e) {
+                    if (e.ctrlKey){                                           // action is pinchzoom
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        f.zoom.updateScale(-e.deltaY / 64, e);
+                        qsr("#font-size-display-indicator").style.opacity = ".8";
+                        qsr("#font-size-display-indicator").innerHTML = ((-e.deltaY > 0) ? "&oplus;" : (f.zoom.amt != 1) ? "&ominus;" : "&osol;") + " " + Math.round(f.zoom.amt * 100) + "%";
+                        try{clearTimeout(indicatorTimeoutOpacity)}catch{}
+                        indicatorTimeoutOpacity = setTimeout(()=>{qsr("#font-size-display-indicator").style.opacity = "0";}, 1001)
+                    } else if (f.zoom.amt > f.zoom.min) {
+                        if (f.zoom.cliY + e.deltaY > 0 && f.zoom.cliY + e.deltaY < window.innerHeight){
+                            f.zoom.cliY += e.deltaY
+                            qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + f.zoom.amt + "); transform-origin:" + f.zoom.cliX + "px " + f.zoom.cliY + "px}" + f.content.pagecolAltStyles;
+                        }
+                        if (f.zoom.cliX + e.deltaX > 0 && f.zoom.cliX + e.deltaX < window.innerWidth){
+                            f.zoom.cliX += e.deltaX
+                            qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + f.zoom.amt + "); transform-origin:" + f.zoom.cliX + "px " + f.zoom.cliY + "px}" + f.content.pagecolAltStyles;
+                            if (Math.round(e.deltaY) == 0){
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                },
+                preventDefault: function(e) {
+                    if (e.ctrlKey){ 
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                    }
+                }
+            },
+
+            scroll: {
+                scrollValues: [0, 0],
+                pushScrollValues: function(x, y){this.scrollValues = [x, y];},
+                initExternalScrollbar: function() {
+                    qsr(".innerexternalscrollpadd").style.height = qsr(".pagecol").scrollHeight * f.zoom.amt + "px";
+                    qsr(".innerexternalscrollpadd").style.width = "1px";
+                },
+                updateExternalScrollbar: function() {
+                    qsr(".externalscrollcontroller").scrollTop = overflowelem.scrollTop;
+                },
+                backUpdateExternal: function() {
+                    overflowelem.scrollTop = qsr(".externalscrollcontroller").scrollTop;
+                }
+            }, 
+
+            content: {
+                generateImages: function() {
+                    for (const element of qsrAll(".da_imgtemplate")){
+                        imgclasses = element.getAttribute("classes");
+                        oclasses = element.getAttribute("oclasses");
+                        ostyle = element.getAttribute("ostyle");
+                        imgstyles = element.getAttribute("styles");
+                        imgcomment = element.getAttribute("title");
+
+                        element.outerHTML =
+                            `<a tabindex="${element.getAttribute("tabindex")}" id="${element.getAttribute("ilid")}" href="${element.getAttribute("originalsrc")}" target="_blank" class="da_generateimg ${(oclasses == null) ? "" : oclasses}" style="text-indent:0px;${(ostyle == null) ? "" : ostyle}"><img src="${element.getAttribute("src")}" class="${(imgclasses == null) ? "" : imgclasses}" style="${(imgstyles == null) ? "" : imgstyles}" alt="${(imgcomment == null) ? "Image" : imgcomment}" /><br style="visibility:hidden"><div style="text-align:center;text-indent:0px" class="${(oclasses == null) ? "" : oclasses}">${(imgcomment == null) ? "" : imgcomment}</div></a>`;
+                    }
+                },
+                initDisambig: function() {
+                    qsr(".disambig#disambig_plate").addEventListener("click", (evt)=>{
+                        if(evt.target == qsr(".disambig#disambig_plate")){
+                            this.hideDisambig();
+                        }
+                    })
+                    document.addEventListener("keydown", (evt)=>{
+                        if(evt.key == "Escape"){
+                            this.hideDisambig();
+                        }
+                    })
+                },
+                showDisambig: function() {
+                    qsr(".disambig#disambig_plate").style.opacity = "1";
+                    qsr(".disambig#disambig_plate").style.pointerEvents = "all";
+                    //f.html.style.overflow = "clip";
+                    yeycontents.style.userSelect = "none";
+                    document.body.style.marginRight = "16px";
+                    qsr(".disambig_inner#disambig_inner").style.marginLeft = "0px";
+                    document.addEventListener("wheel", f.zoom.preventDefault, {passive: false});
+                    document.addEventListener("contextmenu", f.preventDefault, {passive: false});
+                    document.removeEventListener("wheel", f.zoom.zoom_evt_controller);
+                },
+                hideDisambig: function() {
+                    qsr(".disambig#disambig_plate").style.opacity = "0";
+                    qsr(".disambig#disambig_plate").style.pointerEvents = "none";
+                    //f.html.style.overflow = "auto";
+                    yeycontents.style.userSelect = "text";
+                    document.body.style.marginRight = "0px";
+                    qsr(".disambig_inner#disambig_inner").style.marginLeft = "16px";
+                    document.addEventListener("wheel", f.zoom.zoom_evt_controller, {passive: false});
+                    document.removeEventListener("contextmenu", f.preventDefault);
+                    document.removeEventListener("wheel", f.zoom.preventDefault);
+                },
+                updateDisambig: function(e) {
+                    qsr(".disambig_inner#disambig_inner").innerHTML = this.disambigs[e];
+                    this.showDisambig();
+                },
+                disambigs: {
+                    "AStudyInScarletLinkDisambiguation": `
+                    <div class=\"subheading\">A Study In Scarlet<sr style=\"opacity:0;overflow:hidden;margin:-1000px;\"> :Disambiguation</sr></div>
+                    <hr class=\"hr\">
+                    <div class=\"h2subtitle\" style=\"text-align: left;\">Links</div>
+                    <a href=\"https://nsqx.github.io/-/cdn/fc/Sherlock_Holmes-A_Study_In_Scarlet-Project_Gutenberg\" class=\"serif\" target=\"_blank\"># Text (Project Gutenberg)</a>
+                    <a href=\"https://en.wikipedia.org/wiki/A_Study_in_Scarlet\" class=\"serif\" target=\"_blank\"># Wikipedia Reference</a>
+                    <p style=\"opacity:.7\">A Study in Scarlet is a 1887 detective novel by British writer Arthur Conan Doyle. The story marks the first appearance of Sherlock Holmes and Dr. Watson, who would become the most famous detective duo in literature. The book's title derives from a speech given by Holmes, a consulting detective, to his friend and chronicler Watson on the nature of his work, in which he describes the story's murder investigation as his \"study in scarlet\" &mdash; \"There's the scarlet thread of murder running through the colourless skein of life, and our duty is to unravel it, and isolate it, and expose every inch of it.\"</p>
+                    <p style=\"text-align:right\">&mdash; Wikipedia</p>`,
+
+                    "AdaptationsLinkDisambiguation": `
+                    <div class=\"subheading\">Adaptations<sr style=\"opacity:0;overflow:hidden;margin:-1000px;\"> :Disambiguation</sr></div>
+                    <hr class=\"hr\">
+                    <ul class=\"serif\"><div class=\"h2subtitle\" style=\"text-align:left;line-height:1px\">Movies:</div><li>Sherlock Holmes (2009)</li>
+                    <li>Sherlock Holmes: A Game of Shadows (2011)</li>
+                    <li>The Adventures of Sherlock Holmes and Dr. Watson: The Hound of the Baskervilles (1981)</li><br class=novis>
+                    <div class=\"h2subtitle\" style=\"text-align:left;line-height:1px\">TV Shows:</div><li>Sherlock Holmes (BBC, 1960)</li>
+                    <li>Sherlock Holmes and Doctor Watson (1979 - 1980)</li>
+                    <li>Sherlock (BBC 2009 – now)</li>
+                    <li>Elementary (CBS 2012 – now)</li>
+                    </ul>`,
+
+                    "OriginalWorksDisambiguation": `
+                    <div class=\"subheading\">Referenced Original Works<sr style=\"opacity:0;overflow:hidden;margin:-1000px;\"> :Disambiguation</sr></div>
+                    <hr class=\"hr\">
+                    <div class=\"serif\"><div class=\"h2subtitle\" style=\"text-align:left;line-height:1px\">Links</div>
+                    <a target=\"_blank\" href=\"https://en.wikisource.org/wiki/A_Scandal_in_Bohemia\"># A Scandal In Bohemia</a><br class=\"novis\">
+                    <a target=\"_blank\" href=\"https://en.wikisource.org/wiki/The_Adventure_of_the_Speckled_Band\"># The Adventure of the Speckled Band</a><br class=\"novis\">
+                    <a target=\"_blank\" href=\"\"># The Adventure of the Dancing Men</a>
+                    </div>
+                    `,
+
+                    "ModernInterpretationsDisambiguation": `
+                    <div class=\"subheading\">Referenced Modern Interpretations<sr style=\"opacity:0;overflow:hidden;margin:-1000px;\"> :Disambiguation</sr></div>
+                    <hr class=\"hr\">
+                    <div class=\"serif\"><div class=\"h2subtitle\" style=\"text-align:left;line-height:1px\">Links</div>
+                    <a target=\"_blank\" href=\"https://www.imdb.com/title/tt0988045/"># Sherlock Holmes (2009)</a><br class=\"novis\">
+                    <a target=\"_blank\" href=\"https://www.imdb.com/title/tt1515091/\"># Sherlock Holmes: A Game of Shadows (2011)</a>
+                    </div>
+                    `
+                },
+                isInVerticalView: function(element){
+                    if (element.getBoundingClientRect().top < window.innerHeight && element.getBoundingClientRect().top + element.getBoundingClientRect().height > 0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                },
+                updateTOCVisibility: function(){
+                    if (!f.content.isInVerticalView(qsr("#inpage_toc"))){
+                        qsr("#hovering_toc").style.opacity = "1";
+                        qsr("#hovering_toc").style.pointerEvents = "auto";
+                    }else{
+                        qsr("#hovering_toc").style.opacity = "0";
+                        qsr("#hovering_toc").style.pointerEvents = "none";
+                    }
+                },
+                pagecolAltStyles: ".page3fcolouter{ justify-content: center;}",
+                updateLocalStorageScroll: function(){
+                    localStorage['💀'] = overflowelem.scrollLeft + " " + overflowelem.scrollTop;
+                },
+                updateOverflowElem: function(){
+                    overflowelem.scrollLeft = localStorage['💀'] == undefined ? 0 : parseInt(localStorage['💀'].split(" ")[0]);
+                    overflowelem.scrollTop = localStorage['💀'] == undefined ? 0 : parseInt(localStorage['💀'].split(" ")[1]);
+                }
+            }
+        }
+    }
+
+    construct();
+    f.init();
+
+    f.content.generateImages();
+
+
+    /* handle when user pinches trackpad / initiates zoom action */
+    document.addEventListener("wheel", f.zoom.zoom_evt_controller2, {passive: false});
+    overflowelem.addEventListener("scroll", f.content.updateTOCVisibility);
+    //overflowelem.addEventListener("scroll", f.scroll.updateExternalScrollbar);
+    //qsr(".externalscrollcontroller").addEventListener("scroll", f.scroll.backUpdateExternal)
+    window.addEventListener("beforeunload", f.content.updateLocalStorageScroll);
+    window.addEventListener("resize", ()=>{if (qsr(".pagecol").getBoundingClientRect().width > window.innerWidth / f.zoom.amt - 127){
+        //f.html.style.overflowX = "scroll";
+        f.content.pagecolAltStyles = ".page3fcolouter {justify-content:left;padding-left: 2cm;padding-right: 1cm;}";
+        qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + f.zoom.amt + "); transform-origin:" + f.zoom.cliX + "px " + f.zoom.cliY + "px}" + f.content.pagecolAltStyles;
+    }else{
+        //f.html.style.overflowX = "hidden";
+        f.content.pagecolAltStyles = ".page3fcolouter {justify-content:center;}";
+        qsr("#page_zoomcontroller-addendum").innerHTML = ".page3fcolouter {transform: scale(" + f.zoom.amt + "); transform-origin:" + f.zoom.cliX + "px " + f.zoom.cliY + "px}" + f.content.pagecolAltStyles;
+    }})
+    document.addEventListener("keydown", (evt)=>{
+    if (evt.key == "/"){
+        evt.preventDefault();
+        qsr("html").style.filter = "brightness(0)";
+        qsr("html").style.transform = "scale(1.2)";
+        setTimeout(()=>{
+        window.location.href = "file:///C:/Users/Malvin/mine/Projects/html/-/fc/sherlock-holmes-analysis/oobe.html?file:///C:/Users/Malvin/mine/Projects/html/-/fc/sherlock-holmes-analysis/index.html&OEVuZ0grU3VtbWVySHc";}, 700)
+    }})
+    /* end handle */
+
+    console.log("💀", 69)
+    console.log("", "💀", 69)
+    console.log(" ", "💀", 69)
+    console.log("  ", "💀", 69)
+    console.log("   ", "💀", 69)
+    console.log("    ", "💀", 69)
+    console.log("     ", "💀", 69)
+    console.log("      ", "💀", 69)
+    console.log("       ", "💀", 69)
+    console.log("        ", "💀", 69)
+    throw "💀"
+}));
+  </script>
+</head>
+<body style="overflow:clip;overflow-x:hidden;">
+<div class="page3fcolouter">
+  <div class="hovertoc" id="hovering_toc" tabindex="1">
+    <div class="subheading">Table of Contents</div>
+    <hr class="hr">
+    <div class="serif">
+      <div class="mg32"></div>
+      <div style="text-indent:0rem"><a href="#1_top" tabindex="2">Top</a></div>
+      <div style="text-indent:0rem"><a href="#1_introduction" tabindex="2">Introduction</a></div>
+      <div style="text-indent:0rem"><a href="#2_adaptations" tabindex="3">Adaptations</a></div>
+      <div style="text-indent:0rem;"><a href="#2_comparison" tabindex="4">Comparison</a></div>
+      <div style="text-indent:1rem;"><a href="#2_similarity" tabindex="5">Similarity</a></div>
+      <div style="text-indent:1rem;"><a href="#2_difference" tabindex="6">Difference</a></div>
+    </div>
+  </div>
+  <div class="pagecol" id="yeycontents">
+    <div class="page" page="1" id="_page1">
+      <h2 class="h3subtitle">ENGLISH SUMMER HOMEWORK / 2022 GRADE 8 / MALVIN</h2>
+      <hr class="hr" id="1_title">
+      <!--<h1 class="h1title">An Analysis of Sherlock Holmes</h1>-->
+      <h1 class="h1title">Old VS. New: Sherlock Holmes</h1>
+      <h2 class="h2subtitle">Comparing and contrasting: Analyzing the differences and similarities between the original works and modern film interpretations of &ldquo;Sherlock Holmes&rdquo;</h2>
+      <hr class="hr">
+      <div class="mg32"></div>
+      <div class="divrow h100">
+        <div class="divcol">
+          <div class="toc_outer" id="1page_sidebar">
+            <div class="toc_inner" id="inpage_toc" tabindex="23">
+              <div class="subheading">Table of Contents</div>
+              <hr class="hr">
+              <div class="serif">
+                <div class="mg32"></div>
+                <div style="text-indent:0rem"><a href="#1_top" tabindex="24">Top</a></div>
+                <div style="text-indent:0rem"><a href="#1_introduction" tabindex="25">Introduction</a></div>
+                <div style="text-indent:0rem"><a href="#2_adaptations" tabindex="26">Adaptations</a></div>
+                <div style="text-indent:0rem;"><a href="#2_comparison" tabindex="27">Comparison</a></div>
+                <div style="text-indent:1rem;"><a href="#2_similarity" tabindex="28">Similarity</a></div>
+                <div style="text-indent:1rem;"><a href="#2_difference" tabindex="29">Difference</a></div>
+              </div>
+            </div>
+            <div class="mg32 novis">&nbsp;</div>
+            <div style="margin-bottom:-.200%;">
+              <div class="subheading" tabindex="37">Introduction</div>
+              <div class="serif">
+                <div style="text-indent:3rem;text-align: justify;height:fit-content;">The Sherlock Holmes literary canon is one of the most famous and impactful pieces of work which changed and popularized the genre of the detective story in literature.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mg32"></div>
+        <div class="divcol">
+          <span class="da_imgtemplate" src="https://cdn.britannica.com/34/102334-050-B59600F8/Dr-Watson-Sherlock-Holmes-Arthur-Conan-Doyle-1893.jpg" originalsrc="https://cdn.britannica.com/34/102334-050-B59600F8/Dr-Watson-Sherlock-Holmes-Arthur-Conan-Doyle-1893.jpg" title="Illustration of Sherlock Holmes" classes="greyimg" styles="width:100%;filter:grayscale(1) contrast(.7) brightness(1) sepia(.3); border: 1px solid" ostyle="flex-direction:column;align-items:center;" ilid=".illust1" tabindex="38"></span>
+          <span class="da_imgtemplate_hidden" src="assets/16596926019018654.png" originalsrc="https://www.oldbookillustrations.com/wp-content/uploads/2013/12/holmes-pipe.jpg" title="Illustration of Sherlock Holmes" classes="greyimg sepiaimg" styles="height:7cm;width:auto;" ostyle="flex-direction:column;align-items:center;" ilid=".illust1"></span>
+          <p class="indent4" id="1_introduction">Sherlock Holmes is a fictional detective created by British author and physician Arthur Conan Doyle, first appearing in <a href="javascript: f . content . updateDisambig ('AStudyInScarletLinkDisambiguation')" tabindex="39"><i>A Study in Scarlet</i></a>, published in 1887. He displays his finesse in deduction, reasoning, and observation as he investigates each case involving various people and criminals with his friend and companion, Dr. Watson. Throughout the entirety of the original series, Dr. Watson accompanies Sherlock and narrates the scene and Sherlock&rsquo;s seemingly impossible deductions. </p>
+          <p class="indent4">As one of the most famous literary canons, Sherlock Holmes has impacted and popularized the detective genre in literature, remaining the most enduring of his time as he is the inspiration for numerous modern detective novels and adaptations</a>. </p>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="_page2">
+      <div class="divrow">
+        <div class="divcol">
+          <div class="toc_outer">
+            <div class="subheading"><a href="javascript: f . content . updateDisambig ( 'AdaptationsLinkDisambiguation' ) ; ;" tabindex="40">Adaptations</a></div>
+              <div class="serif">
+                <div style="text-indent:3rem;text-align: justify;height:fit-content;">Sherlock Holmes has also been the inspiration for numerous modern literature and adaptations, such as films and TV shows.</div>
+              </div>
+          </div>
+        </div>
+        <div class="mg32"></div>
+        <div class="divcol">
+          <p class="indent4" id="2_adaptations"><span class="da_imgtemplate" src="assets/16596926019018654.png" originalsrc="https://www.oldbookillustrations.com/wp-content/uploads/2013/12/holmes-pipe.jpg" title="The pipe was still between his lips " classes="greyimg sepiaimg" styles="height:7cm;" oclasses="imgflright" ostyle="flex-direction:column;align-items:center" ilid=".illust1" tabindex="42"></span>Many modern interpretations of Sherlock Holmes have been created since, including <a href="javascript: f . content . updateDisambig ( 'AdaptationsLinkDisambiguation' ) ; ;" tabindex="41">films and TV shows</a>. Just like the original works, these modern visual versions also characterize and illustrate Holmes&rsquo; impeccable observation and flawless deduction. However, these modern interpretations also have several differences with the original, including aspects such as narration, emotion, and importance of characters.</p>
+        </div>
+      </div>
+      <div class="mg32" id="2_comparison"></div>
+      <div class="divrow w100">
+        <a class="centersubheading w100 hover:padding-bottom:0px :not:hover:padding-bottom:1px" href="javascript: f . content . updateDisambig ( 'OriginalWorksDisambiguation' ) ; ;" style="margin-left:0px;margin-right:0px;margin-top:0px;padding-bottom:1px;"tabindex=44>Original Works</a>
+      <a class="centersubheading w100 hover:padding-bottom:0px :not:hover:padding-bottom:1px" href="javascript: f . content . updateDisambig ( 'ModernInterpretationsDisambiguation' ) ; ;" style="margin-left:0px;margin-right:0px;margin-top:0px;padding-bottom:1px;"tabindex=45>Modern Interpretations</a>
+      </div>
+      <div class="mg32"></div>
+      <div class="divcol w100">
+        <h2 class="h2subtitle topstick bgtopgradient centersubheading" style="cursor:col-resize" id="2_similarity" tabindex="43">&mdash; Similarity &mdash;</h2>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="1. "></span><b>Basic personality and traits of characters</b> remain unchanged across the different versions &mdash; Sherlock remains just as sharp-eyed and cunning, making the miraculous deductions while investigating the case; and Watson is still Sherlock&rsquo;s loyal friend and right-hand man, providing the help when Sherlock needs it while marvelling at his ingenuity.</div>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="2. "></span>Another point of similarity is the <b>plot and story shape</b>. They all have story and plot that fall into the same structure, where <ol><li c>Sherlock receives a request to solve an intriguing case,</li c> <li c>Sherlock calls upon Watson for help and discusses the problem,</li c> <li c>They arrive at the crime scene,</li c> <li c>Sherlock performs his quick observations and deductions of the scene, </li c> <li c>He ensures the correctness of his guesses, </li c> <li c>&ndash; Interlude &ndash;, and finally,</li c> <li c>The criminal is caught, Sherlock is praised, wrap-up, end.</li c></ol></div>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="3. "></span><b>Methods of communication</b> are the same. Sherlock remains just as sharp-eyed and cunning, making the miraculous deductions while investigating the case; and Watson is still Sherlock&rsquo;s loyal friend and right-hand man, providing the help when Sherlock needs it while marvelling at his ingenuity.</div>
+      </div>
+      <div class="mg32"></div>
+      <div class="divcol w100">
+        <h2 class="h2subtitle topstick bgtopgradient centersubheading" style="cursor:col-resize" id="2_difference" tabindex="44">&mdash; Difference &mdash;</h2>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="1. "></span><b>The narrator and perspective</b> is different between the two mediums. In the original works, the voice of the narrator is Dr. Watson, and the stories and novels are all written from his perspective, thereby concealing Holmes&rsquo; thought process, and making Holmes&rsquo; explanation more abrupt and impactful. In the modern film interpretation, the supposed &ldquo;narrator&rdquo; is still Watson, as revealed at the end of the movie, but Watson still appears as a character, and we are exposed to more of a 3<sup>rd</sup>-person perspective, occasionally switching to a slowed-down fight scene portraying Holmes&rsquo; thought process.</div>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="2. "></span><b>The portrayal of characters</b> is also different. While Sherlock Holmes remains the main character in both, he acts more as a tool of narration for his deduction and thought process in the original works as the original puts more importance on the uniqueness of the case and the solution process. In the movie interpretations, Sherlock fits more into the role of the main character, as the entirety focuses on Sherlock more than the plot.</div>
+        <div class="serif :justify mockp indent4 indent4r comparisoncardpad"><span aft="3. "></span>Another point of difference is the <b>characterization</b>. In the book, as Sherlock Holmes is only a tool of narration, he is more of a round and static character, consistently displaying intelligence and remaining the same. However, in the movies, Sherlock is more of a round and dynamic character. At the start of the (2009) one, Sherlock Holmes is having a difficult time with dealing with the fact that Watson is about to get married, and is about to leave him and his cases, and constantly disapproves. At the end of the movie, Sherlock Holmes gets better with dealing with this information. Sherlock also displays appreciation for Irene Adler, which is another point of deeper personality and developed/developing character</div>
+      </div>
+      <div class="mg32"></div>
+      <div class="divcol">
+        <p class="indent4" id="2_adaptations">Overall, Sherlock Holmes shares both similarities and differences across the different mediums, as different mediums and different times focus on different things, while some things remain the same.</p>
+      </div>
+    </div>
+  </div>
+  
+</div><div class="disambig" id="disambig_plate" style="opacity:0; pointer-events:none;">
+    <!--<div class="disambig_inner" style="padding:.3cm;pointer-events:none;width:100%;text-align:center;user-select:none;margin-top:-1cm">close</div>-->
+    <div class="disambig_inner" id="disambig_inner">
+      <p>disambig information</p>
+    </div>
+  </div>
+  <div id="loading_plate" style="opacity:1; pointer-events:none;position: fixed;
+  display: flex;
+  top:0px;
+  left:0px;
+  bottom:0px;
+  right:0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(10, 10, 10, 0.2);
+  transition: all .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index:7864572936459;">
+    <!--<div class="disambig_inner" style="padding:.3cm;pointer-events:none;width:100%;text-align:center;user-select:none;margin-top:-1cm">close</div>-->
+    <h1 style="font-family: Helvetica, Arial, sans-serif; letter-spacing:-1px; font-size:1cm; text-transform:uppercase; transform: skew(-9deg) scaleX(.9);"></h1>
+  </div>
+  <div class="externalscrollcontroller"><div class="innerexternalscrollpadd"></div></div>
+  <div class=serif style="letter-spacing:-1px; text-shadow:1px 1px 0px rgb(0,0,0),0px 1px 0px rgb(0,0,0),1px 0px 0px rgb(0,0,0),0px 0px 0px rgb(0,0,0), 2px 2px 7px rgba(0,0,0,.7); font-size:1cm;position:fixed;top:0cm;left:0cm;transition:all .5s cubic-bezier(0.165, 0.84, 0.44, 1); z-index:7584682345692834658;pointer-events:none;opacity:0;user-select:none;backdrop-filter:(.9);padding:1cm;box-sizing:border-box;width:100%;height:100%;" id="font-size-display-indicator"></div>
+</body>
+</html>
