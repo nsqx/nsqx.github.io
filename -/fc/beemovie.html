@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bee Movie Transcript / nsq</title>
+
+  <link href="data:@file/css;base64,OjpzZWxlY3Rpb257YmFja2dyb3VuZDpyZ2JhKDI5LDE1MywyNTUsLjQzOCkhaW1wb3J0YW50fTo6LW1vei1zZWxlY3Rpb257YmFja2dyb3VuZDpyZ2JhKDI5LDE1MywyNTUsMC40MzgpIWltcG9ydGFudH0=", rel="stylesheet">
+  <style>canvas {
+    display: inline-block;
+    margin: 0px;
+    animation: .2s fadein cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity:0;
+      transform: translateX(-10px)
+    }to{
+      opacity:1;
+      transform: scale(1)
+    }
+  }
+
+  * {
+    font: 16px consolas,courier,monospace
+  }
+
+  span[line] {
+    display:block;
+    min-width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.15
+  }
+  </style>
+  
+  <script src="/-/cdn/beemovietranscript.js"></script>
+  <script>
+    var line = 0
+    var word = 0
+    document.addEventListener("DOMContentLoaded", function() {
+      for (const line of Transcript.split("\n")) {
+        //document.body.innerHTML += "<canvas id=\"ln" + line + "\"></canvas>"
+        //writeCanvasLetters(document.querySelector("#ln" + line), Transcript.split("\n")[line], 16 * 2 + 'px monospace', 16, 2, 1)
+        //document.body.innerHTML += "<span line>" + line + "</span>"
+      }
+
+        writeTimeout = setTimeout(writeus, 1);
+      document.addEventListener("click", function (){
+        playpause();
+      })
+    })
+    function createline(line) {
+      var canvas = document.createElement("canvas");
+      canvas = document.body.appendChild(canvas);
+      writeCanvasLetters(canvas, line, 16*2 + "px consolas,courier,monospace", 16, 2, 1.15)
+    }
+    function writeCanvasLetters(canvas, text, font, fontSize, scale, lineHeight) {
+      var ctx = canvas.getContext('2d')
+      
+      canvas.height = (fontSize * scale) * lineHeight;
+      canvas.style.zoom = 1/scale;
+      canvas.style.margin = "0px";
+
+      ctx.textBaseline = "top";
+      ctx.font = font;
+      canvas.width = ctx.measureText(text).width + 3;
+      ctx.textBaseline = "top"
+      ctx.font = font;
+      ctx.fillText(text, 2, 0);
+    }
+    function writeus(){
+      try{document.removeEventListener("click", writeus)}catch{}
+      if (line < Transcript.split("\n").length){
+        if (word < Transcript.split("\n")[line].split(" ").length) {
+          createline(Transcript.split("\n")[line].split(" ")[word] + ' ')
+          word += 1;
+          writeTimeout = setTimeout(writeus, 1);
+          document.querySelector("html").scrollBy({top: 10000, behavior: "auto"});
+        } else {
+          line += 1;
+          word = 0;
+          document.body.appendChild(document.createElement("br"))
+          writeTimeout = setTimeout(writeus, 1);
+        }
+      }
+    }
+    paused = false;
+    function playpause(){
+      if (!!paused) {
+        writeTimeout = setTimeout(writeus, 1);
+        paused = !!!paused;
+      } else {
+        clearTimeout(writeTimeout);
+        paused = !!!paused;
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
