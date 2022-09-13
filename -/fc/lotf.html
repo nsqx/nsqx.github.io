@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTF</title>
+    <style>body {padding:64px;margin-left:auto;margin-right:auto;max-width:21cm;font:20px Times,'Times New Roman',sans-serif;content-visibility:auto;visibility:auto;}* {direction: ltr;unicode-bidi: isolate;background-color: white;color:black; transition: filter .5s ease;}::selection { background: rgba(29, 153, 255, 0.438) !important; }::-moz-selection { background: rgba(29, 153, 255, 0.438) !important; }h1{font:30px Times,'Times New Roman',sans-serif;font-size:30px!important;font-weight:400;}.text{text-align:justify !important; width:100%; white-space:pre-wrap; line-height: 2;}</style>
+    <script src="/-/cdn/1/lotf.js">
+        function loadChunks(obj, size, foreach = chunk => {document.body.innerText += chunk}, start = 0, chunk = 1, starttime = Date.now()) {
+            foreach(obj.slice(start, start + size));
+            if (start <= obj.length){
+                window.requestAnimationFrame(function(){loadChunks(obj, size, foreach, start + size, chunk + 1, starttime)});
+            } else {
+                console.log("Finished loading", chunk, "chunks, each", size, "long in", Date.now() - starttime, "ms.");
+            }
+        }
+    </script>
+    <script>
+    function runWorker(JS) { return new Worker("data:@file/javascript;base64," + btoa("/* worker initialized dynamically */ " + JS)); }
+
+    chunker = runWorker(`function chunker(e,a,s=(e=>{this.postMessage(e)}),t=0,n=1,o=Date.now()){s(e.slice(t,t+a)),t<=e.length?requestAnimationFrame((function(){chunker(e,a,s,t+a,n+1,o)})):console.log("Finished loading",n,"chunks, each",a,"long in",Date.now()-o,"ms.")}this.addEventListener("message",(e=>{try{chunker(e.data[0],e.data[1],null!=e.data[2]?e.data[2]:e=>{this.postMessage(e)},null!=e.data[3]?e.data[3]:-e.data[1]),this.postMessage(!0)}catch(e){this.postMessage(!1),console.error(e)}}));`);
+
+    function workerAp(t){document.querySelector(".text").append(t.data)}
+    
+    document.addEventListener("DOMContentLoaded", function(){
+        //window.requestAnimationFrame(function(){loadChunks(Book, 1024 * 16, chunk => {document.querySelector(".text").append(chunk)})})
+        chunker.postMessage([Book, 1024 * 16])
+        chunker.addEventListener("message", function(evt){ 1 == evt.data && chunker.addEventListener("message", workerAp) })
+    });
+    visualViewport.addEventListener("resize",(e=>{document.body.style.filter = visualViewport.scale != 1 ? "drop-shadow(1.25px 3px 8px rgb(0 0 0 /.3))" : "";}))
+    </script>
+</head>
+<body>
+    <h1>Lord of the Flies</h1><sup>by William Golding</sup><sub><br>Internal use only<br><br>Copyright nsq&copy; 2022. All rights reserved.</sub><br><br><br><br><br><br><br><br><br>
+    <div class="text"></div>
+</body>
+</html>
