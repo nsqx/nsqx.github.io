@@ -19,7 +19,7 @@
     <script>
     function runWorker(JS) { return new Worker("data:@file/javascript;base64," + btoa("/* worker initialized dynamically */ " + JS)); }
 
-    chunker = runWorker(`function chunker(e,a,s=(e=>{this.postMessage(e)}),t=0,n=1,o=Date.now()){s(e.slice(t,t+a)),t<=e.length?requestAnimationFrame((function(){chunker(e,a,s,t+a,n+1,o)})):console.log("Finished loading",n,"chunks, each",a,"long in",Date.now()-o,"ms.")}this.addEventListener("message",(e=>{try{chunker(e.data[0],e.data[1],null!=e.data[2]?e.data[2]:e=>{this.postMessage(e)},null!=e.data[3]?e.data[3]:-e.data[1]),this.postMessage(!0)}catch(e){this.postMessage(!1),console.error(e)}}));`);
+    chunker = runWorker(`function chunker(e,a,s=(e=>{this.postMessage(e)}),t=0,n=1,o=Date.now()){s(e.slice(t,t+a)),t<=e.length?requestAnimationFrame((function(){chunker(e,a,s,t+a,n+1,o)})):console.log("Finished loading",n,"chunks, each",a,"long, in",Date.now()-o,"ms.")}this.addEventListener("message",(e=>{try{chunker(e.data[0],e.data[1],null!=e.data[2]?e.data[2]:e=>{this.postMessage(e)},null!=e.data[3]?e.data[3]:-e.data[1]),this.postMessage(!0)}catch(e){this.postMessage(!1),console.error(e)}}));`);
 
     function workerAp(t){document.querySelector(".text").append(t.data)}
     
