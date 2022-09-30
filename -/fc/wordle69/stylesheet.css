@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  position: relative;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+  background-color: #0d1117;
+}
+
+* {
+  direction: ltr;
+  box-sizing: border-box;
+}
+
+main.wordle-clone---main {
+  margin: 0 auto;
+  padding: 32px;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1117;
+}
+
+section#wordle--wordle-words .wordle--wordle-row {
+  margin: 0 auto;
+  width: fit-content;
+  overflow: hidden;
+}
+section#wordle--wordle-words .wordle--wordle-row input {
+  background: transparent;
+  text-transform: uppercase;
+  border-radius: 0px;
+  outline: none;
+  font-size: 49px;
+  border: 1px solid #30363d;
+  width: 67px;
+  padding: 9px;
+  margin: 1px;
+  font-family: Consolas, 'Helvetica Neue', HelveticaNeue, Helvetica, monospace;
+  font-weight: 600;
+  text-align: center;
+  color: #aaa;
+}
+section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
+  background: #ffffff11;
+  color: #ddd;
+}
+
+@keyframes validateErr {
+  0% {
+      transform: translateX(0px);
+  }
+
+  20% {
+      transform: translateX(-16px);
+  }
+
+  40% {
+      transform: translateX(16px);
+  }
+
+  60% {
+      transform: translateX(-16px);
+  }
+
+  80% {
+      transform: translateX(16px);
+  }
+
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+.wordle--wordle-row input.correct {
+  background: #1a7f37 !important;
+}
+
+.wordle--wordle-row input.semicorrect {
+  background: #7f671a !important;
+}
+
+.wordle--wordle-row input.goodword {
+  color: white !important;
+  font-size: 59px !important;
+}
+
+.playagain {
+  position: relative;
+  width: 100%;
+  padding-top: 32px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 24px;
+}
+.playagain a {
+  color: #58a6ff;
+  text-decoration: underline 2px;
+  text-underline-offset: 25%;
+}
+.playagain i,.playagain a {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.titleye div {
+  font-size: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  width: 100%;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.titleye div span.h1 {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 450px) {
+  section#wordle--wordle-words .wordle--wordle-row input {
+    width: calc(20% - 5px);
+    min-width: 10px;
+    padding: .5vw
+  }
+  section#wordle--wordle-words .wordle--wordle-row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
