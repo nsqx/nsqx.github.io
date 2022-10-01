@@ -13,7 +13,7 @@
 
   <main class="wordle-clone---main">
     <section class="titleye">
-      <div><span class="h1">Wordle 69 </span>/ nsq.
+      <div><span class="h1">Wordle 69 </span>/ malv. <span id="difficultyindicator" style="font-size: 16px; opacity: .5"></span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" id="wordle--popup-show"><path d="M11.646 15.146L5.854 9.354a.5.5 0 01.353-.854h11.586a.5.5 0 01.353.854l-5.793 5.792a.5.5 0 01-.707 0z"></path></svg>
       </div>
     </section>
     <section id="wordle--wordle-words">
@@ -21,5 +21,39 @@
     </section>
     <section></section>
   </main>
+
+  <div id="wordle--popup-modal" class="wordle--popup-modal ui">
+    <div style="position: absolute; top:0;left:0;right:0;bottom:0;opacity:0;pointer-events:all;" ctx-role="close"></div>
+    <div class="csXpopup-box box">
+      <div class="box boxheader">
+        <button class="floatright boxoverclose" ctx-role="close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+        </button>
+        <span>Game Menu</span>
+      </div>
+      <div class="box boxbody">
+        <div class="box boxitem">
+          <strong>Hello!</strong> Welcome to Wordle 69! This is a Wordle clone I made in a day because &ldquo;boredom is a crime&rdquo;. It may have bugs, but I didn't ask, ok?
+        </div>
+        <div class="box boxitem">
+          <h3>How to play</h3><br>
+          In Wordle 69, you have 6 (standard) attempts at trying to guess a 5-letter word. If the letter does not exist in the word, it will not be highlighted. If it does appear in the word, but is in the incorrect spot, it will be highlighted in <span class="demo semicorrect">yellow</span>. If it does appear in the word <em>and</em> is in the correct spot, it will be highlighted in <span class="demo correct">green</span>. Using these hints, guess the word! Have fun!<span class="floatright">&mdash; nsq.</span>
+        </div>
+        <div class="box boxitem colflex" id="wordle--popup-options">
+          <h1>Options</h1>
+          <div class="box boxitem">
+            <strong>Difficulty</strong> Change the number of allowed attempts.
+            <select type="dropdown" class="ui floatright" tabindex="-1" onchange="window.location.hash = this.value; window.location.reload()" id="difficult-selector">
+              <option value="-2">Expert (-2)</option>
+              <option value="-1">Difficult (-1)</option>
+              <option value="+0">Standard (+0)</option>
+              <option value="+1">Easy (+1)</option>
+              <option value="+2">Beginner (+2)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
