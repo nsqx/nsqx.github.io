@@ -1,12 +1,18 @@
+::selection { background: rgb(29 153 255 / 0.438) !important; }
+::-moz-selection { background: rgb(64 150 221 / 0.438) !important; }
+
 body {
   margin: 0;
   position: relative;
   padding: 0;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 html {
   color-scheme: dark;
   background-color: #0d1117;
+  color: #c9d1d9;
 }
 
 * {
@@ -24,7 +30,7 @@ main.wordle-clone---main {
   width: 100%;
   height: 100vh;
   background-color: #0d1117;
-  color: white;
+  color: #c9d1d9;
 }
 
 section#wordle--wordle-words .wordle--wordle-row {
@@ -78,16 +84,24 @@ section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
   }
 }
 
-.wordle--wordle-row input.correct {
+.wordle--wordle-row input.correct{
   background: #1a7f37 !important;
 }
-
-.wordle--wordle-row input.semicorrect {
-  background: #7f671a !important;
+.demo.correct {
+  text-decoration: 2px underline #1a7f37 !important;
+  text-underline-offset: 25%;
 }
 
-.wordle--wordle-row input.goodword {
-  color: white !important;
+.wordle--wordle-row input.semicorrect{
+  background: #7f671a !important;
+}
+.demo.semicorrect {
+  text-decoration: 2px underline #7f671a !important;
+  text-underline-offset: 25%;
+}
+
+.wordle--wordle-row input.goodword{
+  color: #c9d1d9 !important;
   font-size: 59px !important;
 }
 
@@ -98,7 +112,7 @@ section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 24px;
-  color: white;
+  color: #c9d1d9;
 }
 .playagain a {
   color: #58a6ff;
@@ -116,10 +130,19 @@ section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
   width: 100%;
   text-align: center;
   margin-bottom: 32px;
-  color: white;
+  color: #c9d1d9;
 }
 .titleye div span.h1 {
   font-weight: 600;
+}
+.titleye div svg {
+  vertical-align: bottom;
+  fill: #c9d1d9;
+  cursor: pointer;
+  width: 50px;
+  margin: -16px -66px -16px 0;
+  padding: 16px 16px 16px 0;
+  box-sizing: content-box;
 }
 
 @media screen and (max-width: 450px) {
@@ -133,4 +156,162 @@ section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
     width: 100%;
     justify-content: center;
   }
+}
+
+.ui {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.wordle--popup-modal {
+  background: rgb(0 0 0 /.7);
+  /*backdrop-filter: blur(5px);*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0vh;
+  transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.csXpopup-box {
+  display: flex;
+  margin: 10vh 0;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-clip: padding-box;
+  box-shadow: 0 0 18px rgb(0 0 0 / 40%);
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  color: #c9d1d9;
+  max-width: 640px;
+  min-width: 480px;
+  min-height: fit-content;
+  height: 480px;
+  max-height: 80vh;
+  pointer-events: all;
+  overflow: hidden;
+}
+.csXpopup-box > :first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.csXpopup-box > :last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.csXpopup-box > :not(:last-child) {
+  border: 0px solid #30363d;
+  border-bottom-width: 1px;
+}
+.box.boxheader {
+  background: #161b22;
+  border: 0px solid #30363d;
+  border-bottom-width: 1px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.box.boxbody {
+  background: #0d1117;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+.floatright {
+  float: right;
+}
+.boxoverclose {
+  background: transparent;
+  border: none;
+  height: 24px;
+  padding: 0px;
+  margin-bottom: -100%;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.boxoverclose svg {
+  fill: #c9d1d9;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
+.boxoverclose:hover svg {
+  fill: white;
+}
+.box.boxitem {
+  padding: 16px;
+}
+.box.boxitem:not(:last-child) {
+  border: 0px solid #30363d;
+  border-bottom-width: 1px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+br {
+  content-visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.colflex {
+  display: flex;
+  flex-direction: column;
+}
+
+#wordle--popup-options select, #wordle--popup-options .inputs {
+  background-color: #0d1117;
+  border-radius: 6px;
+  color:#c9d1d9;
+  border: 1px solid #30363d;
+  outline: none;
+  font-weight: 600;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.wordle--wordle-row {
+  counter-increment: rowC;
+}
+.wordle--wordle-row::before {
+  position: absolute;
+  content: counter(rowC);
+  font-family: Consolas, 'Helvetica Neue', HelveticaNeue, Helvetica, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: 600;
+  font-size: 16px;
+  opacity: .1;
+  transform: translateX(-300%);
 }
