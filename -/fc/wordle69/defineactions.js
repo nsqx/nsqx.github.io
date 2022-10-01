@@ -146,11 +146,32 @@ const kill = evt => {evt.preventDefault(); evt.stopImmediatePropagation(); evt.s
 document.addEventListener("DOMContentLoaded", function() {
   window.currentIndex = [0, 0];
 
-  window.wordleBoard = Wordle.initBoard();
+  if (window.location.hash == "#-2"){
+    window.wordleBoard = Wordle.initBoard(4);
+    $("#difficultyindicator").innerText = "(Expert)"
+    $("#difficult-selector [value=\"-2\"]").setAttribute("selected", "")
+  } else if (window.location.hash == "#-1"){
+    window.wordleBoard = Wordle.initBoard(5);
+    $("#difficultyindicator").innerText = "(Difficult)"
+    $("#difficult-selector [value=\"-1\"]").setAttribute("selected", "")
+  } else if (window.location.hash == "#+1"){
+    window.wordleBoard = Wordle.initBoard(7);
+    $("#difficultyindicator").innerText = "(Easy)"
+    $("#difficult-selector [value=\"+1\"]").setAttribute("selected", "")
+  } else if (window.location.hash == "#+2"){
+    window.wordleBoard = Wordle.initBoard(8);
+    $("#difficultyindicator").innerText = "(Beginner)"
+    $("#difficult-selector [value=\"+2\"]").setAttribute("selected", "")
+  } else {
+    window.wordleBoard = Wordle.initBoard();
+    $("#difficult-selector [value=\"+0\"]").setAttribute("selected", "")
+  }
 
   Verbose.selectedWord = Verbose.words[Math.round(Math.random()*Verbose.words.length)];
   Verbose.currentWord = [
     [[], [], [], [], []], // current row
+    [[], [], [], [], []],
+    [[], [], [], [], []],
     [[], [], [], [], []],
     [[], [], [], [], []],
     [[], [], [], [], []],
@@ -164,6 +185,20 @@ document.addEventListener("DOMContentLoaded", function() {
       char.removeEventListener("keydown", Wordle.changeListener);
       char.removeEventListener("focus", Wordle.focusListener)
     }
+  }
+
+  $("#wordle--popup-show").addEventListener("click", function() {
+    $("#wordle--popup-modal").style.display = "block";
+    setTimeout(function(){$("#wordle--popup-modal").style.opacity = "1";
+    $("#wordle--popup-modal").style.pointerEvents = "all";},1)
+  })
+
+  for (closer of $("#wordle--popup-modal").querySelectorAll("[ctx-role=\"close\"]")) {
+    closer.addEventListener("click", function(){
+      $("#wordle--popup-modal").style.opacity = "0";
+      $("#wordle--popup-modal").style.pointerEvents = "none";
+      setTimeout(function(){$("#wordle--popup-modal").style.display = "none"}, 500);
+    })
   }
   
   for (char of wordleBoard[currentIndex[0]]) {
