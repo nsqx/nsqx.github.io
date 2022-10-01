@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#difficult-selector [value=\"+0\"]").setAttribute("selected", "")
   }
 
-  Verbose.selectedWord = Verbose.words[Math.round(Math.random()*Verbose.words.length)];
+  Verbose.selectedWord = Verbose.words[Math.floor(Math.random()*Verbose.words.length)];
   Verbose.currentWord = [
     [[], [], [], [], []], // current row
     [[], [], [], [], []],
