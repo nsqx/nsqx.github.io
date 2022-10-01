@@ -119,7 +119,7 @@ const Wordle = {
       }
       var playagain = document.createElement("div")
       playagain.className = "playagain"
-      playagain.innerHTML = "The word was <i>" + Verbose.selectedWord + "</i>! <a href=?>Play again</a>"
+      playagain.innerHTML = "The word was <i>" + Verbose.selectedWord + "</i>! <a href=javascript:window.location.reload();>Play again</a>"
       $("#wordle--wordle-words").appendChild(playagain)
     } else if (currentIndex[0] < wordleBoard.length-1) {
       currentIndex[0]++;
@@ -132,7 +132,7 @@ const Wordle = {
     } else {
       var playagain = document.createElement("div")
       playagain.className = "playagain"
-      playagain.innerHTML = "The word was <i>" + Verbose.selectedWord + "</i>! <a href=?>Play again</a>"
+      playagain.innerHTML = "The word was <i>" + Verbose.selectedWord + "</i>! <a href=javascript:window.location.reload();>Play again</a>"
       $("#wordle--wordle-words").appendChild(playagain)
     }
   }
