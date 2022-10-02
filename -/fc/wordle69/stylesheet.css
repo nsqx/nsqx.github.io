@@ -101,7 +101,7 @@ section#wordle--wordle-words .wordle--wordle-row input:not([disabled]) {
 }
 
 .wordle--wordle-row input.goodword{
-  color: #c9d1d9 !important;
+  color: #d2d2d2 !important;
   font-size: 59px !important;
 }
 
