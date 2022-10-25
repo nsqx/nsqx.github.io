@@ -1,1 +1,346 @@
-*,:before,:after{direction:ltr;unicode-bidi:isolate;box-sizing:border-box;font-family:HelveticaNeue,Arial,Helvetica,sans-serif}::-moz-selection{background:rgba(29,153,255,.438)}::selection{background:rgba(29,153,255,.438)}html,body{margin:0;overscroll-behavior:none;height:100vh;width:100%;background-color:#fff}main.periodic-table{position:relative;margin:0 auto;width:fit-content;display:flex;flex-direction:column;align-items:center;min-width:fit-content;flex-shrink:0}div.entirety{min-width:100%;min-height:95%;padding:0 96px 64px 64px;top:5%;position:relative;display:flex}section{display:flex;width:100%;position:relative}section:before{content:attr(period);position:absolute;left:-32px;height:100%;display:flex;align-items:center}div[cell],div[cellmock]{border:1px solid #000;padding:2px 0;margin:0 -1px -1px 0;position:relative;display:flex;flex-direction:column;align-items:center;width:80px;height:86px;width:70px;height:80px;background-color:#fff;transition:all .5s cubic-bezier(.48,.08,.19,1);transition:box-shadow .25s cubic-bezier(.165,.84,.44,1);border-top-left-radius:1px;flex-shrink:0}
+*, ::before, ::after {
+  direction: ltr;
+  unicode-bidi: isolate;
+  box-sizing: border-box;
+  font-family: HelveticaNeue, Arial, Helvetica, sans-serif;
+}
+
+::-moz-selection { background:rgba(29, 153, 255, 0.438) }
+::selection { background:rgba(29, 153, 255, 0.438) }
+
+html, body {
+  margin: 0px;
+  overscroll-behavior: none;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+
+main.periodic-table {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: fit-content;
+  flex-shrink: 0;
+}
+
+div.entirety {
+  min-width: 100%;
+  min-height: 95%;
+  padding: 0 96px 64px 64px;
+  top: 5%;
+  position: relative;
+  display: flex;
+}
+
+/*@media screen and (min-width: 1755px) {
+  div.sidepane {
+    min-width: 364px;
+    max-width: 364px;
+    overflow: hidden;
+    margin-right:-64px;
+    border-left: 1px solid black;
+    position: sticky; 
+    top: 0px;
+    bottom: 0px;
+  }
+}
+@media screen and (max-width: 1754px) {
+  div.sidepane {
+    min-width: 300px;
+    border-left: 1px solid black;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: white;
+    z-index: 100
+  }
+  main.periodic-table {
+    padding-right: 364px;
+  }
+}*/
+
+section {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+section::before {
+  content: attr(period);
+  position: absolute;
+  left: -32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+div[cell], div[cellmock] {
+  border: 1px solid black;
+  padding: 2px 0px;
+  margin: 0 -1px -1px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  height: 86px;
+  width: 70px;
+  height: 80px;
+  background-color: white;
+  transition: all .5s cubic-bezier(0.48, 0.08, 0.19, 1);
+  transition: box-shadow .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-top-left-radius: 1px;
+  flex-shrink: 0;
+}
+div[insertcell] {
+  border: 1px dashed black;
+  padding: 2px 0px;
+  margin: 0 -1px -1px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 80px;
+  background-color: rgba(235, 235, 235, .7);
+  transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  flex-shrink: 0;
+}
+div[cell]::before, div[cellmock]::before {
+  width: calc(100% + 2px);
+  content: "";
+  height: 30px;
+  position: absolute;
+  border: 1px solid black;
+  top: -30px;
+  left: -1px;
+  transform: skewX(-45deg);
+  transform-origin: bottom;
+  border-top-right-radius: 1px;
+  background-color: white;
+}
+div[cell]::after, div[cellmock]::after {
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  width: 31px;
+  content: "";
+  height: calc(100% + 2px);
+  position: absolute;
+  border: 1px solid black;
+  top: 0;
+  left: 100%;
+  transform: skewY(-45deg);
+  transform-origin: left;
+  background-color: white;
+}
+div[insertcell] span[spr-elem] {
+  font-size: 15px !important;
+}
+div[cell] span[elem], div[cell] span[am], div[cell] span[an], div[insertcell] span[spr-an], div[insertcell] span[spr-elem], div[cellmock] span[elem], div[cellmock] span[am], div[cellmock] span[an] {
+  font-size: 13px;
+}
+div[cell] span[an], div[insertcell] span[spr-an], div[cellmock] span[an] {
+  font-weight: 600;
+}
+div[cell] span[sym], div[cellmock] span[sym] {
+  font-weight: 600;
+  font-size: 22px;
+}
+div[cell] span, div[cellmock] span {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+div[cell] span[elem], div[insertcell] span[spr-elem], div[cellmock] span[elem] {
+  transform: scaleX(.8);
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+}
+div[groupno] {
+  width: 0px;
+  height: 0px;
+  margin: 0px;
+  position: relative;
+}
+div[groupno]::after {
+  content: attr(groupno);
+  position: absolute;
+  top: -52px;
+  left: 24px;
+  width: 70px;
+  text-align: center;
+  pointer-events: none;
+}
+
+div[cellmock-labeler] {
+  position: absolute;
+  left: 180%;
+  overflow: visible;
+  z-index: 100;
+  display: inline;
+  width: max-content;
+  text-align: left;
+  padding-left: 4px;
+  min-width: 300%;
+}
+div[cellmock-labeler]::before {
+  position: absolute;
+  content: "";
+  height: 0px;
+  border-bottom: 1px dashed black;
+  width: 50px;
+  right: 100%;
+  z-index: 694;
+  top: 50%;
+}
+div[legend-table] {
+  user-select: none;
+  position:absolute; left:20%; height: 80px;
+  top: 70%;
+  display: flex;
+}
+div[legend-table] * {
+  flex-shrink: 0;
+}
+div[cellcolor-legend] {
+  display: flex;
+  flex-direction: column;
+  z-index: 695 !important;
+  position: relative;
+  left: 150%;
+}
+div[cellcolor-legend]> * {
+  flex-shrink: 2;
+  transition: flex-shrink .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+div[cellcolor-legend]> :hover {
+  flex-shrink: 1
+}
+
+hr[pd] {
+  border: none;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+div[groupn="1"] {
+  background-color: rgb(240, 190, 190);
+}
+div[groupn="2"] {
+  background-color: rgb(191, 190, 240);
+}
+div[groupn="3"] {
+  background-color: rgb(240, 222, 190);
+}
+div[groupn="4"] {
+  background-color: rgb(190, 240, 193);
+}
+div[groupn="5"] {
+  background-color: rgb(190, 231, 240);
+}
+div[groupn="6"] {
+  background-color: rgb(190, 206, 240);
+}
+div[groupn="7"] {
+  background-color: rgb(220, 190, 240);
+}
+div[groupn="8"] {
+  background-color: rgb(240, 190, 220);
+}
+div[groupn="9"] {
+  background-color: rgb(213, 240, 190);
+}
+div[groupn="10"] {
+  background-color: rgb(240, 209, 190);
+}
+
+div[groupn="1"]::after, div[groupn="1"]::before {
+  background-color: rgb(219, 178, 178);
+}
+div[groupn="2"]::after, div[groupn="2"]::before {
+  background-color: rgb(176, 176, 220);
+}
+div[groupn="3"]::after, div[groupn="3"]::before {
+  background-color: rgb(202, 187, 158);
+}
+div[groupn="4"]::after, div[groupn="4"]::before {
+  background-color: rgb(169, 216, 172);
+}
+div[groupn="5"]::after, div[groupn="5"]::before {
+  background-color: rgb(165, 199, 207);
+}
+div[groupn="6"]::after, div[groupn="6"]::before {
+  background-color: rgb(164, 177, 206);
+}
+div[groupn="7"]::after, div[groupn="7"]::before {
+  background-color: rgb(176, 148, 194);
+}
+div[groupn="8"]::after, div[groupn="8"]::before {
+  background-color: rgb(194, 150, 176);
+}
+div[groupn="9"]::after, div[groupn="9"]::before {
+  background-color: rgb(179, 202, 158);
+}
+div[groupn="10"]::after, div[groupn="10"]::before {
+  background-color: rgb(194, 169, 153);
+}
+
+
+@keyframes slideCellOut {
+  from {
+    transform: translate(0px, 0px)
+  }
+  to {
+    transform: translate(-10px, 10px)
+  }
+}
+@keyframes slideCellIn {
+  from {
+    transform: translate(-10px, 10px)
+  }
+  to {
+    transform: translate(0px, 0px)
+  }
+}
+
+div[cell]:not(:focus) {
+  animation: slideCellIn .25s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  cursor: default;
+}
+div[cell]:focus, div[cell]:hover {
+  animation: slideCellOut .25s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  box-shadow: -0px 0px 9px rgb(0 0 0 / .3);
+}
+div[cell][erer] {
+  transform: translate(-20px, 20px) !important;
+  cursor: default;
+  box-shadow: -0px 0px 9px rgb(0 0 0 / .3);
+}
+
+main {
+  filter: drop-shadow(-0px 0px 9px rgb(0 0 0 / .2));
+}
+
+
+#shader {
+  position: fixed;
+  z-index: 693203204;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: transparent;
+  text-align: right;
+  mix-blend-mode: difference;
+}
