@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  direction: ltr;
+  
+  --s-h1: 48px;
+  --s-h2: 40px;
+  --s-h3: 32px;
+  --s-h4: 24px;
+  --s-h5: 20px;
+  --s-h6: 16px;
+  --s-default: 14px;
+  --s-small: 12px;
+  --s-big: 60px;
+}
+
+::-moz-selection { background:rgba(29, 153, 255, 0.438) }
+::selection { background:rgba(29, 153, 255, 0.438) }
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: var(--s-default);
+  scroll-behavior: smooth;
+}
+html {
+  overflow: auto;
+  overflow-x: hidden;
+}
+body {
+  min-height: 100vh;
+  height: fit-content;
+}
+defs {
+  display: none;
+}
+section {
+  content-visibility: auto;
+}
+ 
+@media screen and (max-width: 747px) {
+  body {
+    zoom: .7
+  }
+  #cursorcirclefollower {
+    zoom: 1.42857143
+  }
+}
+
+main {
+  position: relative;
+  z-index: 12;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+h1, .s-h1 { font-size: var(--s-h1) }
+h2, .s-h2 { font-size: var(--s-h2) }
+h3, .s-h3 { font-size: var(--s-h3) }
+h4, .s-h4 { font-size: var(--s-h4) }
+h5, .s-h5 { font-size: var(--s-h5) }
+h6, .s-h6 { font-size: var(--s-h6) }
+.s-default { font-size: var(--s-default) }
+.s-small { font-size: var(--s-small) }
+.s-big { font-size: var(--s-big) }
+
+.align-left { text-align: left }
+.align-center{ text-align: center }
+.align-right { text-align: right }
+.align-justify { text-align: justify }
+
+.noselect { user-select: none; }
+.--c-outlinetxt { -webkit-text-stroke: 1px currentColor; -webkit-text-fill-color: transparent; }
+
+[color-theme=light] {
+  color: black;
+  background-color: white;
+  color-scheme: light;
+}
+
+[color-theme=dark] {
+  color: #eee;
+  background-color: #333;
+  color-scheme: dark;
+}
